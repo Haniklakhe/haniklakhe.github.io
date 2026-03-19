@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Research — Hanik Lakhe</title>
+<link rel="stylesheet" href="shared.css">
+<style>
+.interests-grid { display:grid; grid-template-columns:repeat(4,1fr); gap:1rem; margin-top:2rem; }
+.int-card { background:var(--bg2); border:1px solid var(--border); border-radius:8px; padding:1.5rem 1.2rem; text-align:center; transition:all .2s; }
+.int-card:hover { border-color:var(--teal); box-shadow:0 4px 18px rgba(13,138,138,.1); transform:translateY(-2px); }
+.int-icon { width:46px; height:46px; margin:0 auto .9rem; background:var(--teal-lt); border:1px solid var(--teal-lt2); border-radius:10px; display:flex; align-items:center; justify-content:center; }
+.int-icon svg { width:20px; height:20px; stroke:var(--teal); fill:none; stroke-width:1.5; }
+.int-title { font-size:.88rem; font-weight:600; color:var(--ink); margin-bottom:.4rem; line-height:1.3; }
+.int-desc  { font-size:.76rem; color:var(--muted); line-height:1.65; }
+.current-roles { display:grid; grid-template-columns:1fr 1fr; gap:1rem; margin-top:1.5rem; }
+.role-card { background:var(--bg2); border:1px solid var(--border); border-left:3px solid var(--teal); border-radius:6px; padding:1.5rem; }
+.role-active { display:flex; align-items:center; gap:.4rem; font-family:var(--mono); font-size:.6rem; color:var(--green); letter-spacing:.1em; text-transform:uppercase; margin-bottom:.7rem; }
+.role-active::before { content:''; width:6px; height:6px; background:var(--green); border-radius:50%; animation:pulse 2s infinite; }
+.role-title { font-size:.95rem; font-weight:600; color:var(--ink); margin-bottom:.2rem; }
+.role-org   { font-size:.8rem; color:var(--teal); margin-bottom:.25rem; }
+.role-period{ font-family:var(--mono); font-size:.6rem; color:var(--muted); margin-bottom:.7rem; }
+.role-desc  { font-size:.82rem; color:var(--muted); line-height:1.75; }
+@media(max-width:900px){ .interests-grid{grid-template-columns:1fr 1fr} .current-roles{grid-template-columns:1fr} }
+@media(max-width:600px){ .interests-grid{grid-template-columns:1fr} }
+</style>
+</head>
+<body class="page">
+<nav>
+  <a href="index.html" class="nav-brand">Hanik <span>Lakhe</span></a>
+  <ul class="nav-links">
+    <li><a href="index.html">Home</a></li><li><a href="about.html">About</a></li>
+    <li><a href="research.html">Research</a></li><li><a href="projects.html">Projects</a></li>
+    <li><a href="experience.html">Experience</a></li><li><a href="publications.html">Publications</a></li>
+    <li><a href="contact.html">Contact</a></li>
+  </ul>
+  <a href="contact.html" class="nav-cta">Contact Me</a>
+  <button class="nav-burger" id="burger"><span></span><span></span><span></span></button>
+</nav>
+<div class="nav-drawer" id="navDrawer">
+  <a href="index.html">Home</a><a href="about.html">About</a><a href="research.html">Research</a>
+  <a href="projects.html">Projects</a><a href="experience.html">Experience</a>
+  <a href="publications.html">Publications</a><a href="contact.html">Contact</a>
+</div>
+
+<div class="hero-strip">
+  <div class="inner">
+    <div class="page-eyebrow">Research</div>
+    <h1 class="page-h1">Research <em>Interests</em></h1>
+    <p class="page-lead" contenteditable="false">Integrating hydrology, remote sensing, AI/ML, and citizen science to understand and manage water resources in a changing climate across South and Southeast Asia.</p>
+  </div>
+</div>
+
+<div class="container">
+  <!-- Current Roles -->
+  <div class="sec-eyebrow">Currently</div>
+  <h2 class="sec-h">Active Positions</h2>
+  <div class="current-roles">
+    <div class="role-card">
+      <div class="role-active">Active</div>
+      <div class="role-title" contenteditable="false">Student Research Assistant</div>
+      <div class="role-org" contenteditable="false">Global Water and Sanitation Centre (GWSC), AIT</div>
+      <div class="role-period" contenteditable="false">June 2025 – Present · Pathum Thani, Thailand</div>
+      <div class="role-desc" contenteditable="false">Developing geospatial datasets for sanitation infrastructure across Asian cities. Generating ArcGIS/QGIS thematic maps for CWIS city assessments to identify service gaps and investment priorities for international development partners.</div>
+    </div>
+    <div class="role-card">
+      <div class="role-active">Active</div>
+      <div class="role-title" contenteditable="false">MSc Candidate — Water Engineering &amp; Management</div>
+      <div class="role-org" contenteditable="false">Asian Institute of Technology (AIT)</div>
+      <div class="role-period" contenteditable="false">August 2024 – May 2026 · Pathum Thani, Thailand</div>
+      <div class="role-desc" contenteditable="false">Graduate student (GPA: 3.87/4.0) supported by AIT Scholarship (75%) and GWSC Scholarship (25%). Research integrates hydrological modelling, nature-based solutions, and spatial analysis for water resource management in Southeast Asia.</div>
+    </div>
+  </div>
+
+  <hr class="div">
+
+  <!-- Research Interests -->
+  <div class="sec-eyebrow">Focus Areas</div>
+  <h2 class="sec-h">What I Study &amp; Explore</h2>
+  <div class="interests-grid">
+    <div class="int-card"><div class="int-icon"><svg viewBox="0 0 24 24"><path d="M3 20h18M5 20V10l7-7 7 7v10"/></svg></div><div class="int-title" contenteditable="false">Hydrological Modelling</div><div class="int-desc" contenteditable="false">Flood risk, water security frameworks and watershed management using SWAT, HEC-HMS, and MIKE+.</div></div>
+    <div class="int-card"><div class="int-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15 15 0 010 20M12 2a15 15 0 000 20"/></svg></div><div class="int-title" contenteditable="false">Remote Sensing &amp; GIS</div><div class="int-desc" contenteditable="false">Satellite-based climate risk and CWIS sanitation mapping using ArcGIS, QGIS, and Google Earth Engine.</div></div>
+    <div class="int-card"><div class="int-icon"><svg viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg></div><div class="int-title" contenteditable="false">AI/ML in Hydrology</div><div class="int-desc" contenteditable="false">Machine learning for extreme event analysis, CMIP6 temperature forecasting, and landslide susceptibility mapping.</div></div>
+    <div class="int-card"><div class="int-icon"><svg viewBox="0 0 24 24"><path d="M8 3H5a2 2 0 00-2 2v3m0 8v3a2 2 0 002 2h3m8 0h3a2 2 0 002-2v-3M21 8V5a2 2 0 00-2-2h-3"/></svg></div><div class="int-title" contenteditable="false">Sediment Dynamics</div><div class="int-desc" contenteditable="false">Suspended sediment flux in Himalayan rivers using citizen science, OBS sensors, and real-time turbidity monitoring.</div></div>
+    <div class="int-card"><div class="int-icon"><svg viewBox="0 0 24 24"><path d="M12 22V12M12 12C12 7 7 3 2 3M12 12c0-5 5-9 10-9"/></svg></div><div class="int-title" contenteditable="false">Nature-Based Solutions</div><div class="int-desc" contenteditable="false">Urban water management NBS frameworks and best practices for sustainable Asian city infrastructure.</div></div>
+    <div class="int-card"><div class="int-icon"><svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/></svg></div><div class="int-title" contenteditable="false">Citizen Science</div><div class="int-desc" contenteditable="false">Community-based water monitoring networks; evaluating citizen scientist reliability vs standard datasets.</div></div>
+    <div class="int-card"><div class="int-icon"><svg viewBox="0 0 24 24"><path d="M2 12h2m16 0h2M12 2v2m0 16v2M4.93 4.93l1.41 1.41m11.32 11.32l1.41 1.41M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg></div><div class="int-title" contenteditable="false">Climate Change Adaptation</div><div class="int-desc" contenteditable="false">CMIP6 extreme projections, disaster resilience, and post-disaster management for informal settlements.</div></div>
+    <div class="int-card"><div class="int-icon"><svg viewBox="0 0 24 24"><path d="M7 16V4m0 0L3 8m4-4l4 4M17 8v12m0 0l4-4m-4 4l-4-4"/></svg></div><div class="int-title" contenteditable="false">Water &amp; Sanitation (WASH)</div><div class="int-desc" contenteditable="false">CWIS city assessments, geospatial sanitation planning, and equitable water infrastructure in Asia.</div></div>
+  </div>
+
+  <hr class="div">
+
+  <!-- In Progress -->
+  <div class="sec-eyebrow">In Progress</div>
+  <h2 class="sec-h">Current Research Paper</h2>
+  <div class="card card-accent" style="max-width:700px">
+    <span class="badge badge-gold" style="margin-bottom:.8rem">Manuscript in Progress</span>
+    <div style="font-family:var(--serif);font-style:italic;font-size:1rem;color:var(--ink);line-height:1.5;margin-bottom:.6rem">Anticipating Extreme Temperature Indices in Nepal: Insights from the CMIP6 Climate Model Assessment.</div>
+    <p style="font-size:.82rem;color:var(--muted);line-height:1.7" contenteditable="false">Projecting future extreme temperature indices in Nepal using CMIP6 climate model outputs — with implications for water resources, agriculture, and disaster risk in the Hindu Kush Himalayan region.</p>
+    <div class="chips"><span class="badge badge-teal">CMIP6</span><span class="badge badge-teal">Climate Modelling</span><span class="badge badge-teal">Extreme Events</span><span class="badge badge-teal">Nepal</span></div>
+  </div>
+
+  <div style="margin-top:2.5rem;display:flex;gap:1rem;flex-wrap:wrap">
+    <a href="publications.html" class="btn btn-teal">View All Publications →</a>
+    <a href="projects.html" class="btn btn-outline">View Projects →</a>
+  </div>
+</div>
+
+<footer>
+  <div class="footer-inner">
+    <div><div class="footer-brand">Hanik Lakhe</div><div class="footer-tagline">Water Engineer &amp; Hydrologist · MSc Candidate at AIT, Thailand</div></div>
+    <div class="footer-links"><h4>Pages</h4><a href="index.html">Home</a><a href="about.html">About</a><a href="projects.html">Projects</a><a href="experience.html">Experience</a><a href="publications.html">Publications</a><a href="contact.html">Contact</a></div>
+    <div class="footer-links"><h4>Contact</h4><a href="mailto:hlakhe123.hl@gmail.com">hlakhe123.hl@gmail.com</a><a href="https://linkedin.com/in/hanik-lakhe" target="_blank">LinkedIn</a></div>
+  </div>
+  <div class="footer-bottom"><div class="footer-copy">© 2026 Hanik Lakhe · Water Engineer &amp; Hydrologist · AIT Thailand</div></div>
+</footer>
+<div class="edit-mode-badge">✏ Edit Mode Active</div>
+<div class="owner-fab" id="ownerFab">
+  <div class="owner-panel" id="ownerPanel">
+    <div class="op-title">Owner Tools</div>
+    <button class="op-btn" onclick="toggleTextEdit()">✎ Toggle text editing</button>
+    <button class="op-btn" onclick="saveContent()">💾 Save to browser</button>
+    <button class="op-btn" onclick="exportPage()">⬇ Download this page</button>
+    <button class="op-btn" onclick="clearContent()">↩ Reset page</button>
+    <button class="op-btn danger" onclick="lockOwner()">🔒 Exit edit mode</button>
+  </div>
+  <button class="owner-btn" onclick="toggleOwnerPanel()">⚙</button>
+</div>
+<div id="toast"></div>
+<script src="shared.js"></script>
+</body>
+</html>
