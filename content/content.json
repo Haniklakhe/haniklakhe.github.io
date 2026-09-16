@@ -1,0 +1,648 @@
+{
+  "_meta": {
+    "purpose": "Single source of truth for all site content. Edit this file to update the site — no code changes needed for text/content updates.",
+    "sourceDocuments": [
+      "Hanik Lakhe Curriculum Vitae.pdf (dated June 8, 2026) — treated as the authoritative source wherever it conflicts with the LinkedIn export",
+      "Profile.pdf (LinkedIn export) — used only to fill gaps the CV doesn't cover"
+    ],
+    "placeholderConvention": "Any string value starting with \"ADD_\" is a required field with no data found in the source documents. Fill it in before publishing. A `null` image path means: render the styled initials/icon placeholder instead of a broken image.",
+    "knownPlaceholders": [
+      "person.links.researchGate",
+      "certifications (empty — none found in source documents)",
+      "teachingSupervision (empty — no distinct formal teaching/supervision title found; related mentoring duties are described inside relevant experience bullets)",
+      "several conference entries: exact venue location not stated in source, marked ADD_LOCATION",
+      "several publications: DOI not stated in source, marked ADD_DOI",
+      "awards[3] (MoChWo Scholarship): issuer/date not itemized in source, marked ADD_ISSUER / ADD_DATE"
+    ],
+    "resolvedUsingCV": [
+      "GWSC role title and start date follow the CV exactly ('Student Research Assistant', June 2025 – Present).",
+      "Smartphones For Water Nepal sub-role dates and duties follow the CV exactly (one shared bullet list across all three titles, per the CV's own layout).",
+      "Young Researchers' Circle sub-role dates and duties follow the CV exactly (one shared bullet list across both titles, per the CV's own layout).",
+      "BSc Environmental Science dates follow the CV exactly (2017 – 2021).",
+      "AIIB engagement location follows the CV exactly ('Remote').",
+      "All experience bullet lists (GWSC, AIIB, AIT/SWAT, MESSHI, Himalayan Climate Data Field Lab) follow the CV's exact wording rather than LinkedIn's."
+    ],
+    "excludedByRequest": "Academic term reports, course projects, and both the MSc and BSc thesis write-ups were intentionally left out of researchProjects per your instruction. The MSc and BSc thesis titles/advisors/tools are still captured under `education` (they aren't lost, just not duplicated as standalone project cards).",
+    "additionalProjectsFromUser": "The four S4W-Nepal projects added after the initial extraction (Citizen Science-based Hydro-meteorological Monitoring of the Kathmandu Valley, REAMO, VICTORY, and Smartphone-Based Urban Flood Modelling) came from project descriptions you supplied directly, not from the CV or LinkedIn. Those source documents don't state your specific role/title on each project — per your instruction, role now defaults to 'Research Associate' (your actual title at Smartphones For Water Nepal during that era, and your current title). Exact start-end dates for these four are still marked ADD_PERIOD (not currently displayed on the Projects page, which no longer shows dates per your request, but still present in the data). The MESSHI entry was also enriched with the fuller project description you supplied (University of Pittsburgh collaboration) without removing the role-specific detail already sourced from the CV.",
+    "imageOptimization": "profile.jpg was originally a 9MB, 3376x6000px camera-native photo, which made even server-side optimization slow on first load. Resized in place to 900x1600 (~0.13MB). aiib-cambodia-climate-risk.png (was 3070x3188, 1.28MB) resized to 1348x1400 (~0.6MB), alpha channel preserved. swat-northern-thailand.png (was 2717x1439, 2.79MB) resized to 1600x847 (~1.25MB). All still look sharp at the sizes actually displayed on the site; if you ever add another very large source photo, tell me and I'll pre-resize it the same way.",
+    "imageNamingConvention": "All images are now live: 7 of 7 project photos under /public/images/projects/<project id>.<ext> (two — aiib-cambodia-climate-risk and swat-northern-thailand — are .png, the rest .jpg) and the profile photo at /public/images/profile.jpg (used on both Home and About). Nothing outstanding on images.",
+    "currentRoleTransition": "Confirmed: GWSC ended April 30, 2026 (shown as 'June 2025 – April 2026', matching the month-level granularity used everywhere else on the site). New role: Research Associate, Water Engineering and Management, Faculty of Civil and Environmental Engineering (FCEE), Asian Institute of Technology (AIT) — location Pathum Thani, Thailand, same as other AIT-based entries. One inference not yet explicitly confirmed: the start date was set to 'May 2026 – Present', inferred from 'April 30 until, and then FCEE' implying immediate continuation with no gap. Correct this in the exp-fcee entry (and person.currentRole if relevant) if there was a gap or a different start date."
+  },
+
+  "site": {
+    "name": "Hanik Lakhe",
+    "title": "Hanik Lakhe | Water Engineer & Hydrologist",
+    "description": "Academic portfolio of Hanik Lakhe, a Water Engineering and Management graduate student at the Asian Institute of Technology specializing in hydrological modelling, remote sensing and GIS, and climate risk analysis.",
+    "url": "ADD_PRODUCTION_URL",
+    "locale": "en_US"
+  },
+
+  "person": {
+    "name": "Hanik Lakhe",
+    "headline": "Water Engineer & Hydrologist | Researcher | Hydrological Modelling | Remote Sensing & GIS | AI/ML in Hydrology | Citizen Science",
+    "shortHeadline": "Water Engineering & Management Graduate | Hydrologist | Water Modeller",
+    "location": "Khlong Luang District, Pathum Thani, Thailand",
+    "photo": "/images/profile.jpg",
+    "currentRole": {
+      "title": "Research Associate",
+      "organization": "Water Engineering and Management, Faculty of Civil and Environmental Engineering (FCEE)",
+      "institution": "Asian Institute of Technology (AIT)"
+    },
+    "academicStatus": "MSc Candidate, Water Engineering and Management, Asian Institute of Technology (AIT), Thailand (2024–2026)",
+    "email": "hlakhe123.hl@gmail.com",
+    "links": {
+      "linkedin": "https://www.linkedin.com/in/hanik-lakhe",
+      "orcid": "https://orcid.org/0000-0001-7026-4245",
+      "googleScholar": "https://scholar.google.com/citations?user=vAqIs78AAAAJ&hl=en",
+      "researchGate": "ADD_RESEARCHGATE",
+      "github": "https://github.com/Haniklakhe"
+    }
+  },
+
+  "homeSummary": "I am a Research Associate in Water Engineering and Management at the Faculty of Civil and Environmental Engineering (FCEE), Asian Institute of Technology (AIT), and a Water Engineering and Management graduate of AIT with 5+ years of research experience in hydrology, geospatial analysis, citizen science, and water resource management — from leading the MESSHI sediment-monitoring project to GIS-based sanitation assessments at GWSC.",
+
+  "biography": "I am a Research Associate in Water Engineering and Management at the Faculty of Civil and Environmental Engineering (FCEE), Asian Institute of Technology (AIT), Thailand, and a Water Engineering and Management graduate of AIT, with 5+ years of research experience spanning hydrology, geospatial analysis, citizen science, and water resource management. My work integrates field observations, hydrological and hydraulic modelling, AI/ML, GIS, and remote sensing to address complex water and environmental challenges, and I have contributed to multidisciplinary research projects, peer-reviewed publications, and international conference presentations. Previously, I was a Student Research Assistant at the AIT Global Water & Sanitation Center (GWSC) (June 2025 – April 2026), developing geospatial datasets and ArcGIS/QGIS maps for city-level sanitation assessments across Asia. As Project Leader of the MESSHI Project (2023–2024), I established a suspended sediment laboratory from scratch, deployed real-time sensors in the Himalayas, managed a citizen science team, and co-authored findings presented at AGU and WaterSciCon24. Earlier, as a Research Associate at Smartphones For Water Nepal (5+ years across several roles), I contributed to peer-reviewed publications, managed water quality and streamflow datasets, and represented the organization at international conferences. I am open to research collaborations, academic positions, and water sector opportunities.",
+
+  "researchInterests": [
+    {
+      "id": "hydrological-hydraulic-modelling",
+      "title": "Hydrological & Hydraulic Modelling",
+      "description": "Hydrological modelling (SWAT, HEC-HMS, MIKE+) for water resources management and flood risk analysis."
+    },
+    {
+      "id": "remote-sensing-gis-climate-risk",
+      "title": "Remote Sensing & GIS-Based Climate Risk Assessment",
+      "description": "Remote sensing and GIS-based climate risk assessment, water management, CWIS assessments, and sanitation infrastructure planning."
+    },
+    {
+      "id": "suspended-sediment-dynamics",
+      "title": "Suspended Sediment Dynamics",
+      "description": "Suspended sediment dynamics in Himalayan river systems using low-cost sensors and citizen science."
+    },
+    {
+      "id": "ai-ml-big-data-hydrology",
+      "title": "AI/ML & Big Data in Hydrology",
+      "description": "AI/ML and big data applications in hydrology and extreme event analysis."
+    },
+    {
+      "id": "nature-based-solutions",
+      "title": "Nature-Based Solutions (NBS)",
+      "description": "Nature-based solutions for urban water management."
+    }
+  ],
+
+  "researchProjects": [
+    {
+      "id": "s4w-citizen-science-hydromet-kathmandu",
+      "title": "Citizen Science-based Hydro-meteorological Monitoring of the Kathmandu Valley",
+      "type": "Research Project",
+      "period": "ADD_PERIOD",
+      "role": "Research Associate",
+      "institution": "Smartphones For Water Nepal (S4W-Nepal)",
+      "fundedBy": "SmartPhones4Water (S4W)",
+      "location": "Kathmandu Valley, Nepal",
+      "tools": ["Low-cost sensors", "Mobile data collection platform"],
+      "description": "Focuses on the Kathmandu Valley, where extreme population growth has led to extensive stress and degradation of water resources and associated ecosystems. Mobilizes young researchers and citizen scientists using simple field data collection methods, low-cost sensors, and a standardized, scalable mobile data collection platform to fill data and knowledge gaps in resource- and data-scarce regions while enhancing the quality and applicability of young researchers' efforts. Monitors rainfall, stream and groundwater levels and quality, and freshwater biodiversity, alongside short-term measurement campaigns on monsoon rainfall, land-use change, stone spout flow and quality, streamflow, and stream-aquifer interactions. A one-year project funded by SmartPhones4Water (S4W), continuing a citizen science project (2016–2019) funded by the Swedish International Development Agency (SIDA) and S4W.",
+      "image": "/images/projects/s4w-citizen-science-hydromet-kathmandu.jpg"
+    },
+    {
+      "id": "messhi-project",
+      "title": "Monitoring and Evaluating Suspended Sediment in Himalaya (MESSHI)",
+      "type": "Research Project",
+      "period": "January 2023 – July 2024",
+      "role": "Project Leader",
+      "institution": "Smartphones For Water Nepal",
+      "collaborators": ["University of Pittsburgh, Pennsylvania, USA"],
+      "location": "Lalitpur District, Nepal",
+      "tools": ["OBS Sensors", "Data Loggers", "Citizen Science Monitoring Network"],
+      "description": "A collaborative initiative between S4W-Nepal and the University of Pittsburgh, Pennsylvania, USA, taking a citizen science approach in which trained citizen scientists collect suspended sediment samples and other data at set intervals, complemented by cost-effective sediment sensors, to provide insight into the sediment dynamics of Nepal's rivers, understand potential impacts on river systems, and support research-based river management strategies. As Project Leader, designed and led project plans, monitoring protocols, and laboratory procedures for suspended sediment analysis; established a fully operational suspended sediment laboratory from scratch and deployed OBS sensors and data loggers at remote Himalayan field sites for real-time turbidity data collection; recruited, trained, and managed a team of citizen scientists and volunteers; and coordinated across international stakeholders, collaborators, and donors. Findings were co-authored and presented at AGU Fall Meeting 2023 and WaterSciCon24, and published in EGUsphere (2026).",
+      "image": "/images/projects/messhi-project.jpg"
+    },
+    {
+      "id": "s4w-reamo",
+      "title": "REAMO — Real-time Asian Meteorological Observatory",
+      "type": "Research Project",
+      "period": "ADD_PERIOD",
+      "role": "Research Associate",
+      "institution": "Smartphones For Water Nepal (S4W-Nepal)",
+      "collaborators": ["Utrecht University", "ICIMOD", "USOME"],
+      "location": "High Mountain Asia (regional network)",
+      "tools": ["Weather Station Networks"],
+      "description": "Aspires to make meteorological data freely available and develop applications throughout (High Mountain) Asia by promoting and developing extensive networks of weather stations from the plains to the mountains. A joint initiative of Utrecht University, S4W-Nepal, ICIMOD, and USOME, building on years of scientific expertise, regional knowledge, and the latest web and weather station technology.",
+      "image": "/images/projects/s4w-reamo.jpg"
+    },
+    {
+      "id": "s4w-victory",
+      "title": "VICTORY — Visualizing the Power of Citizen Science Through Observations and Repository for Anticipatory Action",
+      "type": "Research Project",
+      "period": "ADD_PERIOD",
+      "role": "Research Associate",
+      "institution": "Smartphones For Water Nepal (S4W-Nepal)",
+      "collaborators": ["Institute of Himalayan Risk Reduction Center (IHRR)"],
+      "fundedBy": "Asian Disaster Preparedness Center (ADPC)",
+      "location": "Bhimeshwor Municipality, Dolakha & Barbaribiya Municipality, Bardiya, Nepal",
+      "tools": ["Low-cost precipitation & water level sensors", "Citizen science crowdsourcing mobile application"],
+      "description": "A collaborative initiative of S4W-Nepal and the Institute of Himalayan Risk Reduction Center (IHRR), funded by the Asian Disaster Preparedness Center (ADPC), implemented over one year in Bhimeshwor Municipality, Dolakha, and Barbaribiya Municipality, Bardiya. Harnesses the collective strength of communities, turning everyday individuals into scientific contributors for an Early Warning System (EWS) for floods and landslides, using low-cost hardware (precipitation and water level sensors) and software solutions (a citizen science crowdsourcing mobile application).",
+      "image": "/images/projects/s4w-victory.jpg"
+    },
+    {
+      "id": "s4w-smartphone-urban-flood-modelling",
+      "title": "Smartphone-Based Urban Flood Modelling",
+      "type": "Research Project",
+      "period": "ADD_PERIOD",
+      "role": "Research Associate",
+      "institution": "Smartphones For Water Nepal (S4W-Nepal)",
+      "collaborators": ["Photrack AG"],
+      "location": "Kathmandu Valley, Nepal",
+      "tools": ["Discharge App (smartphone-based non-contact optical flow measurement)"],
+      "description": "Develops and implements a citizen science-based streamflow monitoring network to address severe urban flooding challenges in the Kathmandu Valley. Operationalizes the smartphone-based Discharge app to generate high-resolution time-series streamflow data, overcoming the limitations of traditional measurement techniques through non-contact optical flow measurement of streams. Carried out in collaboration with Photrack AG.",
+      "image": "/images/projects/s4w-smartphone-urban-flood-modelling.jpg"
+    },
+    {
+      "id": "aiib-cambodia-climate-risk",
+      "title": "Multi-Hazard Climate Risk Assessment of Road Infrastructure, Cambodia",
+      "type": "Consulting Project",
+      "period": "August 2025 – September 2025",
+      "role": "Freelance GIS & Climate Risk Consultant",
+      "institution": "Asian Infrastructure Investment Bank (AIIB), under Dr. Srinivasan Ancha",
+      "location": "Remote",
+      "tools": ["GIS", "Spatial Analysis"],
+      "description": "Conducted a comprehensive climate risk assessment of road infrastructure across 10 provinces in Cambodia, supporting AIIB-funded climate resilience and infrastructure planning initiatives. Developed high-resolution multi-hazard risk maps for 38 priority road segments using advanced GIS and spatial analysis techniques. Assessed five major climate hazards — flood, drought, landslide, heatwave, and coastal flooding — to evaluate both current and future risk. Generated clear, decision-ready visualizations and maps to communicate complex climate risks to technical and non-technical stakeholders.",
+      "image": "/images/projects/aiib-cambodia-climate-risk.png"
+    },
+    {
+      "id": "swat-northern-thailand",
+      "title": "SWAT Hydrological Modelling & Nature-Based Solutions for Northern Thailand",
+      "type": "Research Project",
+      "period": "January 2025 – June 2025",
+      "role": "Research Assistant / Modeler",
+      "institution": "Water Engineering and Management, School of Engineering and Technology, Asian Institute of Technology",
+      "location": "Pathum Thani, Thailand",
+      "tools": ["SWAT"],
+      "description": "Developed hydrological models (SWAT) for effective use in Northern Thailand and conducted case studies on nature-based solutions (NBS), documenting best practices for urban water management. Organized project meetings and acted as a point of contact among research partners.",
+      "image": "/images/projects/swat-northern-thailand.png"
+    }
+  ],
+
+  "publications": [
+    {
+      "id": "pub-2026-egusphere-suspended-sediment",
+      "year": 2026,
+      "authors": "Prajapati, R., Karki, S., Thapa, S., Lakhe, H., Bain, D., Gardner, J.",
+      "title": "Suspended sediment dynamics in an urban, mountain catchment in Nepal.",
+      "venue": "EGUsphere",
+      "volumeInfo": "2026, 1–35",
+      "doi": "ADD_DOI",
+      "authorHighlight": "Lakhe, H."
+    },
+    {
+      "id": "pub-2025-earth-systems-citizen-science-rainfall",
+      "year": 2025,
+      "authors": "Duwal, S., Prajapati, R., Upadhyay, S., Neupane, S., Lakhe, H., Thapa, B. R., Davids, J.C., Talchabhadel, R.",
+      "title": "Leveraging a Citizen Science Approach for Rainfall Monitoring: Evaluating Performance and Reliability To Complement Standard Datasets.",
+      "venue": "Earth Systems and Environment",
+      "volumeInfo": "1–16",
+      "doi": "ADD_DOI",
+      "authorHighlight": "Lakhe, H."
+    },
+    {
+      "id": "pub-2023-khwopa-journal-groundwater",
+      "year": 2023,
+      "authors": "Mandal, R.B., Shakya, S., Ghale, B., Lakhe, H., Duwal, S., Shakya, B.",
+      "title": "Assessing Groundwater Level and Water Quality in Bhaktapur Municipality: A Pre-Monsoon and Post-Monsoon Analysis.",
+      "venue": "Khwopa Journal",
+      "volumeInfo": "5(2), pp. 74–90",
+      "doi": "ADD_DOI",
+      "authorHighlight": "Lakhe, H."
+    },
+    {
+      "id": "pub-2022-hydrology-chirps",
+      "year": 2022,
+      "authors": "Upadhyay, S., Silwal, P., Prajapati, R., Talchabhadel, R., Shrestha, S., Duwal, S., Lakhe, H.",
+      "title": "Evaluating Magnitude Agreement and Occurrence Consistency of CHIRPS Product with Ground-Based Observations over Medium-Sized River Basins in Nepal.",
+      "venue": "Hydrology",
+      "volumeInfo": "9(8), p. 146",
+      "doi": "https://doi.org/10.3390/hydrology9080146",
+      "authorHighlight": "Lakhe, H."
+    },
+    {
+      "id": "pub-2020-water-hanumante-return-level",
+      "year": 2020,
+      "authors": "Kindermann, P.E., Brouwer, W.S., van Hamel, A., van Haren, M., Verboeket, R.P., Nane, G.F., Lakhe, H., Prajapati, R., Davids, J.C.",
+      "title": "Return level analysis of the Hanumante river using structured expert judgment: A reconstruction of historical water levels.",
+      "venue": "Water",
+      "volumeInfo": "12(11), p. 3229",
+      "doi": "https://doi.org/10.3390/w12113229",
+      "authorHighlight": "Lakhe, H."
+    }
+  ],
+
+  "conferences": [
+    {
+      "id": "conf-2024-watersci-linking-satellite-sensor-citizen",
+      "year": 2024,
+      "date": "June 2024",
+      "authors": "Prajapati, R., Gardner, J., Lakhe, H.",
+      "title": "Linking satellite, sensor, and citizen science to understand sediment dynamics in Himalayan rivers.",
+      "conference": "Water Science Conference (WaterSciCon24)",
+      "reference": "No. 227, pp. 223–227",
+      "location": "ADD_LOCATION",
+      "role": "Co-Author"
+    },
+    {
+      "id": "conf-2024-watersci-citizen-scientist-performance",
+      "year": 2024,
+      "date": "June 2024",
+      "authors": "Duwal, S., Lakhe, H., Neupane, S., Prajapati, R.",
+      "title": "Evaluating Citizen Scientist's Performance on Water Resources Observation in the Kathmandu Valley.",
+      "conference": "Water Science Conference (WaterSciCon24)",
+      "reference": "No. 24, pp. 312–024",
+      "location": "ADD_LOCATION",
+      "role": "Co-Author"
+    },
+    {
+      "id": "conf-2022-agu-water-quality-index-groundwater",
+      "year": 2022,
+      "date": "December 2022",
+      "authors": "Lakhe, H., Silwal, P., Chalise, A., Duwal, S., Shakya, S., Prajapati, R., Shakya, B. M.",
+      "title": "Application of Water Quality Index for Groundwater Quality Assessment and its Perspective among the Urban Dwellers of the Kathmandu Valley, Nepal.",
+      "conference": "AGU Fall Meeting 2022",
+      "location": "ADD_LOCATION",
+      "role": "Lead Author"
+    },
+    {
+      "id": "conf-2022-kec-wqi-hanumante",
+      "year": 2022,
+      "date": "2022",
+      "authors": "Lakhe, H., Silwal, P., Duwal, S., Chalise, A., Shakya, S., Shakya, M.B.",
+      "title": "Application of the Water Quality Index (WQI) for Irrigational Water Quality Assessment of the Hanumante River.",
+      "conference": "KEC Conference 2022",
+      "location": "ADD_LOCATION",
+      "role": "Lead Author"
+    },
+    {
+      "id": "conf-2021-agu-baseflow-kathmandu",
+      "year": 2021,
+      "date": "December 2021",
+      "authors": "Lakhe, H., Silwal, P., Duwal, S., Prajapati, R., Shakya, S., Davids, J.C.",
+      "title": "Estimation of the Total Baseflow of the Kathmandu Valley Using Monthly Streamflow Measurements from a Sub-Sample of Headwater Catchments.",
+      "conference": "AGU Fall Meeting 2021",
+      "location": "ADD_LOCATION",
+      "role": "Lead Author"
+    }
+  ],
+
+  "experience": [
+    {
+      "id": "exp-fcee",
+      "organization": "Water Engineering and Management, Faculty of Civil and Environmental Engineering (FCEE), Asian Institute of Technology",
+      "title": "Research Associate",
+      "location": "Pathum Thani, Thailand",
+      "period": "May 2026 – Present",
+      "current": true,
+      "bullets": []
+    },
+    {
+      "id": "exp-gwsc",
+      "organization": "Global Water and Sanitation Center (GWSC)",
+      "title": "Student Research Assistant",
+      "location": "Pathum Thani, Thailand",
+      "period": "June 2025 – April 2026",
+      "current": false,
+      "bullets": [
+        "Prepared and managed geospatial datasets related to sanitation infrastructure, service coverage, and urban demographics.",
+        "Generated maps using ArcGIS or QGIS for CWIS city assessments, investment planning, and presentations.",
+        "Supported spatial analysis to identify service gaps and infrastructure risks.",
+        "Integrated field data and geo-referenced surveys into project dashboards or planning tools.",
+        "Assisted in developing technical reports, knowledge products, and visual materials based on GIS outputs.",
+        "Participated in event preparation, Center-wide workshops, and cross-team documentation efforts.",
+        "Supported other tasks assigned by the TA Hub or GWSC management team."
+      ]
+    },
+    {
+      "id": "exp-aiib",
+      "organization": "Asian Infrastructure Investment Bank (AIIB) — under Dr. Srinivasan Ancha",
+      "title": "Freelance GIS & Climate Risk Consultant",
+      "location": "Remote",
+      "period": "August 2025 – September 2025",
+      "current": false,
+      "bullets": [
+        "Conducted a comprehensive climate risk assessment of road infrastructure across 10 provinces in Cambodia, supporting AIIB-funded climate resilience and infrastructure planning initiatives.",
+        "Developed high-resolution multi-hazard risk maps for 38 priority road segments using advanced GIS and spatial analysis techniques.",
+        "Assessed five major climate hazards — flood, drought, landslide, heatwave, and coastal flooding — to evaluate both current and future risk.",
+        "Generated clear, decision-ready visualizations and maps to communicate complex climate risks to technical and non-technical stakeholders."
+      ]
+    },
+    {
+      "id": "exp-ait-swat",
+      "organization": "Water Engineering and Management, School of Engineering and Technology, Asian Institute of Technology",
+      "title": "Research Assistant / Modeler",
+      "location": "Pathum Thani, Thailand",
+      "period": "January 2025 – June 2025",
+      "current": false,
+      "bullets": [
+        "Develop hydrological models (SWAT) for effective use in Northern Thailand and conduct case studies on NBS and document best practices for urban water management.",
+        "Organize project meetings and act as a point of contact among research partners."
+      ]
+    },
+    {
+      "id": "exp-s4w-nepal",
+      "organization": "Smartphones For Water Nepal",
+      "location": "Thasikhel, Nepal",
+      "current": false,
+      "roles": [
+        { "title": "Research Associate", "period": "July 2022 – July 2024" },
+        { "title": "Research Assistant", "period": "January 2019 – June 2022" },
+        { "title": "Research Assistant Intern", "period": "June – December 2019" }
+      ],
+      "bullets": [
+        "Managed overall S4W-Nepal data and ensured quality control, including regular data validation and updates.",
+        "Facilitated a research group (Surface Water) and supported idea development, proposal writing, and implementation.",
+        "Authored scientific articles, citizen science stories, presentations, and contributed to peer-reviewed publications.",
+        "Represented S4W-Nepal in meetings, conferences, and programs as directed by the CEO.",
+        "Oversaw organizational programs, awareness campaigns, and managed social media platforms (Facebook, Instagram, YouTube).",
+        "Prepared monthly progress reports for activities, campaigns, and strategic projects, including actionable insights.",
+        "Strengthened collaborations with stakeholders through effective communication and outreach initiatives."
+      ]
+    },
+    {
+      "id": "exp-messhi",
+      "organization": "Monitoring and Evaluating Suspended Sediment in Himalaya (MESSHI) Project",
+      "title": "Project Leader",
+      "location": "Lalitpur District, Nepal",
+      "period": "January 2023 – July 2024",
+      "current": false,
+      "bullets": [
+        "Developed and implemented project plans, monitoring protocols, and laboratory procedures for suspended sediment analysis.",
+        "Established a laboratory for suspended sediment determination and installed sensors at monitoring sites, ensuring real-time data collection.",
+        "Led fieldwork planning, data collection efforts, and ensured meticulous data storage and management.",
+        "Recruited, trained, and managed a team of citizen scientists and volunteers for field and lab activities.",
+        "Coordinated with stakeholders, collaborators, and donors to align project goals and ensure seamless execution.",
+        "Authored detailed project reports, scientific publications, and contributed to conference papers to disseminate findings.",
+        "Prepared comprehensive progress reports and technical documentation for stakeholders, ensuring transparency and accountability.",
+        "Facilitated workshops and training sessions for stakeholders, fostering knowledge sharing and capacity building."
+      ]
+    },
+    {
+      "id": "exp-field-lab",
+      "organization": "Himalayan Climate Data Field Lab 2024",
+      "title": "Participant",
+      "location": "Entrance Cafe, Patan, Nepal",
+      "period": "May 13 – June 7, 2024",
+      "current": false,
+      "bullets": [
+        "Collaborated with research groups, including Sensing and Sensors, Chitwan Flooding, AI-Machine Learning, and Re-imagining Resilience and Vulnerability.",
+        "Conducted vulnerability assessments and developed post-disaster management plans for informal settlements along the Bagmati River Corridor using drone and 360-degree imagery.",
+        "Developed a machine learning model to create a landslide susceptibility map, enhancing hazard risk analysis.",
+        "Participated in interactive sessions on disaster risk management, resilience building, and climate adaptation.",
+        "Attended workshops on GitHub, Google Earth Engine, and advanced disaster risk modeling techniques.",
+        "Networked with research enthusiasts and interdisciplinary professionals from over 17 countries to foster collaborations."
+      ]
+    },
+    {
+      "id": "exp-yrc",
+      "organization": "Young Researchers' Circle",
+      "location": "Thasikhel, Nepal",
+      "current": false,
+      "roles": [
+        { "title": "Treasurer", "period": "April 2020 – August 2021" },
+        { "title": "Coordinator", "period": "August 2021 – July 2022" }
+      ],
+      "bullets": [
+        "Managed financial oversight, including budget estimation, fund mobilization, and financial reporting to ensure transparency.",
+        "Tracked expenses, prepared financial summaries, and provided regular updates to the executive committee.",
+        "Led a group of 50+ early career research enthusiasts, graduate, and undergraduate students, fostering collaborative learning.",
+        "Coordinated and supervised the work of YRC members, ensuring alignment with organizational goals and objectives.",
+        "Involved in strategic planning, project execution, and tracking progress of YRC initiatives and campaigns.",
+        "Maintained updated records, prepared reports, and followed up on decisions from executive committee meetings.",
+        "Contributed to the bimonthly \"Young Researcher\" newsletter and fortnightly \"Environmental News Refresher\" (ENR).",
+        "Organized training programs and seminars to enhance research capacity and engagement among members."
+      ]
+    },
+    {
+      "id": "exp-himbiocc",
+      "organization": "Himalayan Biodiversity and Climate Change Center (HimBioCC)",
+      "title": "Research Intern",
+      "location": "Bhaktapur, Bāgmatī, Nepal",
+      "period": "January 2019 – June 2019",
+      "current": false,
+      "bullets": [
+        "Contributed to an Ecological Stream Health Assessment project."
+      ]
+    }
+  ],
+
+  "education": [
+    {
+      "id": "edu-ait-msc",
+      "institution": "Asian Institute of Technology (AIT)",
+      "location": "Paholyothin Highway, Klong Luang, Pathum Thani 12120, Thailand",
+      "degree": "Master's Degree, Water Engineering and Management",
+      "period": "2024 – 2026",
+      "gpa": "3.87/4.00",
+      "funding": "75% AIT Scholarship + 25% GWSC Scholarship + 2 registration waivers",
+      "thesis": {
+        "title": "Towards Future Flood Hazard Mapping under Climate and Land Use Change Using Integrated LSTM and HEC-RAS Modeling: Karnali River Basin, Nepal",
+        "grade": "Excellent",
+        "advisor": "Prof. Dr. Sangam Shrestha",
+        "tools": ["CMIP6 Climate Projections", "LSTM Model", "HEC-RAS", "GIS", "Dyna-CLUE Land-use Change Modeling"]
+      },
+      "notes": "Recipient of the Chainarong Na Lamphun Prize and GWSC Scholar."
+    },
+    {
+      "id": "edu-khwopa-bsc",
+      "institution": "Khwopa College, Tribhuvan University",
+      "location": "Bhaktapur, Nepal",
+      "degree": "B.Sc. in Environmental Science",
+      "period": "2017 – 2021",
+      "honors": "Graduated First Division; Academic Merit Scholarship recipient",
+      "thesis": {
+        "title": "Assessment of Water Quantity and Quality of Traditional Stone Spouts (Hitis) of Bhaktapur Municipality",
+        "advisor": "Meera Prajapati",
+        "tools": ["GIS", "ODK Collect/Aggregate", "Water Quality Index"]
+      }
+    },
+    {
+      "id": "edu-khwopa-higher-secondary",
+      "institution": "Khwopa Higher Secondary School",
+      "location": "Nepal",
+      "degree": "+2 Level, Science",
+      "period": "2015 – 2017"
+    },
+    {
+      "id": "edu-khwopring",
+      "institution": "Khwopring English Academy (Secondary)",
+      "location": "Nepal",
+      "degree": "School Leaving Certificate (SLC)",
+      "period": "2014 – 2015"
+    }
+  ],
+
+  "skills": [
+    {
+      "category": "Hydrological & Hydraulic Modelling",
+      "items": [
+        { "name": "HEC-HMS", "level": null },
+        { "name": "HEC-RAS", "level": null },
+        { "name": "HEC-ResSim", "level": null },
+        { "name": "MIKE+ 2025", "level": null },
+        { "name": "SWAT", "level": null },
+        { "name": "SWAT-CUP", "level": null },
+        { "name": "Rainfall Runoff Inundation (RRI) Modelling", "level": null }
+      ]
+    },
+    {
+      "category": "Land Use & Climate Change Modelling",
+      "items": [
+        { "name": "Dyna-CLUE Land-use Modeling", "level": null },
+        { "name": "Climate Change Modeling", "level": null }
+      ]
+    },
+    {
+      "category": "Groundwater Modelling",
+      "items": [
+        { "name": "GMS-MODFLOW", "level": null },
+        { "name": "Visual MODFLOW", "level": null }
+      ]
+    },
+    {
+      "category": "Water Quality Modelling",
+      "items": [
+        { "name": "Qual-2K", "level": null }
+      ]
+    },
+    {
+      "category": "Programming Skills",
+      "items": [
+        { "name": "Python", "level": "Intermediate" },
+        { "name": "AI and Machine Learning", "level": "Intermediate" },
+        { "name": "Google Earth Engine", "level": "Intermediate" },
+        { "name": "R Studio", "level": "Basic" }
+      ]
+    },
+    {
+      "category": "Spatial Analysis Tools",
+      "items": [
+        { "name": "QGIS (Quantum GIS)", "level": "Intermediate" },
+        { "name": "ArcGIS", "level": "Intermediate" },
+        { "name": "PyGIS", "level": "Intermediate" },
+        { "name": "Google Earth Engine", "level": "Intermediate" }
+      ]
+    },
+    {
+      "category": "Water Accounting",
+      "items": [
+        { "name": "Hydrology", "level": null },
+        { "name": "Field Data Collection", "level": null },
+        { "name": "Data Management", "level": null },
+        { "name": "Benthic Sampling, Sorting & Identification", "level": null }
+      ]
+    },
+    {
+      "category": "Environmental Monitoring",
+      "items": [
+        { "name": "Acoustic Doppler Velocimeter (ADV)", "level": null },
+        { "name": "OBS Sensors", "level": null },
+        { "name": "Auto Level", "level": null },
+        { "name": "Data Loggers & Other Equipment", "level": null },
+        { "name": "Water Quality Monitoring", "level": null }
+      ]
+    },
+    {
+      "category": "Software",
+      "items": [
+        { "name": "Open Data Kit (ODK) Collect", "level": null },
+        { "name": "ODK Aggregate", "level": null },
+        { "name": "HOBOware", "level": null },
+        { "name": "Microsoft Office Suite", "level": null },
+        { "name": "LaTeX", "level": null }
+      ]
+    }
+  ],
+
+  "languages": [
+    { "name": "English", "level": null },
+    { "name": "Nepali", "level": null },
+    { "name": "Hindi", "level": null },
+    { "name": "Newari", "level": null }
+  ],
+
+  "certifications": [],
+
+  "teachingSupervision": [],
+
+  "awards": [
+    {
+      "id": "award-chainarong",
+      "name": "Chainarong Na Lamphun Prize",
+      "issuer": "Asian Institute of Technology",
+      "location": "Pathum Thani, Thailand",
+      "role": "Awardee",
+      "year": 2026
+    },
+    {
+      "id": "award-gwsc-scholarship",
+      "name": "Global Water and Sanitation Center (GWSC) Scholarship",
+      "issuer": "Global Water and Sanitation Center",
+      "location": "Bangkok, Thailand",
+      "role": "GWSC Scholar",
+      "year": 2024
+    },
+    {
+      "id": "award-agu-travel-grant",
+      "name": "AGU Fall Meeting Travel Grant",
+      "issuer": "American Geophysical Union",
+      "location": "Washington, USA",
+      "role": "Grantee",
+      "year": 2021
+    },
+    {
+      "id": "award-mochwo",
+      "name": "MoChWo Scholarship",
+      "issuer": "ADD_ISSUER",
+      "location": "ADD_LOCATION",
+      "role": "Scholar",
+      "year": "ADD_DATE"
+    },
+    {
+      "id": "award-mahatma-gandhi",
+      "name": "Mahatma Gandhi Scholarship",
+      "issuer": "Indian Embassy, Kathmandu",
+      "location": "Kathmandu, Nepal",
+      "role": "Scholarship Holder",
+      "year": 2015
+    }
+  ],
+
+  "featuredResearchHighlights": [
+    {
+      "refId": "messhi-project",
+      "label": "Project Leadership",
+      "title": "MESSHI — Suspended Sediment Monitoring in the Himalaya",
+      "blurb": "Built a suspended sediment laboratory and real-time sensor network from scratch, leading a citizen science team; findings presented at AGU and WaterSciCon24."
+    },
+    {
+      "refId": "aiib-cambodia-climate-risk",
+      "label": "Climate Risk Consulting",
+      "title": "Multi-Hazard Climate Risk Mapping — Cambodia Road Network",
+      "blurb": "Developed multi-hazard climate risk maps for 38 priority road segments across 10 Cambodian provinces for AIIB-funded infrastructure planning."
+    },
+    {
+      "refId": "swat-northern-thailand",
+      "label": "Hydrological Modelling",
+      "title": "SWAT Modelling & Nature-Based Solutions — Northern Thailand",
+      "blurb": "Developed SWAT hydrological models and documented nature-based solutions for urban water management across Northern Thailand watersheds."
+    }
+  ],
+
+  "cv": {
+    "path": "/cv/Hanik_CV.pdf",
+    "label": "Download CV",
+    "note": "Real CV, supplied by the site owner."
+  },
+
+  "collaborationCTA": {
+    "heading": "Open to Collaboration",
+    "body": "I'm open to research collaborations, academic positions, and water sector opportunities — particularly around hydrological modelling, climate risk, and citizen science. Get in touch via email or LinkedIn."
+  }
+}
