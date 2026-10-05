@@ -2,27 +2,214 @@
 @tailwind components;
 @tailwind utilities;
 
+/* ---- Fonts: self-hosted, latin subset, preloaded from layout.tsx ---- */
+@font-face {
+  font-family: "Instrument Sans Variable";
+  src: url("/fonts/instrument-sans-condensed.woff2") format("woff2");
+  font-weight: 400 700;
+  font-stretch: 75%;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Source Serif 4 Variable";
+  src: url("/fonts/source-serif-4-400.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Source Serif 4 Variable";
+  src: url("/fonts/source-serif-4-600.woff2") format("woff2");
+  font-weight: 600 700;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Source Serif 4 Variable";
+  src: url("/fonts/source-serif-4-400-italic.woff2") format("woff2");
+  font-weight: 400;
+  font-style: italic;
+  font-display: swap;
+}
+
+/* ---- Tokens (DESIGN.md §3). Space-separated RGB channels. ---- */
+:root {
+  --ground: 230 235 227;
+  --panel: 245 247 241;
+  --console: 11 26 34;
+  --ink: 13 31 39;
+  --ink-soft: 63 84 92;
+  --rule: 197 206 195;
+  --water: 10 111 126;
+  --nir: 168 44 78; /* text-safe */
+  --nir-graphic: 194 59 94; /* graphics only, 4.25:1 on ground */
+  --swir: 217 154 30; /* graphics, or text on console only */
+}
+
+.dark {
+  --ground: 11 26 34;
+  --panel: 18 37 47;
+  --console: 5 14 19;
+  --ink: 230 235 227;
+  --ink-soft: 169 186 181;
+  --rule: 35 64 77;
+  --water: 76 195 211;
+  --nir: 240 114 143;
+  --nir-graphic: 240 114 143;
+  --swir: 232 176 74;
+}
+
 @layer base {
   html {
     scroll-behavior: smooth;
+    -webkit-text-size-adjust: 100%;
   }
 
   body {
-    @apply bg-paper text-ink transition-colors duration-200 dark:bg-deep dark:text-paper;
+    @apply bg-ground font-body text-[1.125rem] leading-[1.6] text-ink;
+    font-optical-sizing: auto;
+  }
+
+  /* Legacy sections still use dark: variants on the old tokens. Keep them readable. */
+  .dark body {
+    @apply bg-ground text-ink;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    @apply font-display font-bold;
+    font-stretch: 75%;
+    letter-spacing: -0.02em;
   }
 
   ::selection {
-    @apply bg-teal/20;
+    background: rgb(var(--water) / 0.25);
   }
 
   :focus-visible {
-    @apply outline-2 outline-offset-2 outline-teal dark:outline-teal-light;
+    outline: 2px solid rgb(var(--water));
+    outline-offset: 3px;
+  }
+}
+
+@layer components {
+  /* Condensed display face for labels and numerals */
+  .label {
+    @apply font-display text-[0.875rem] font-semibold leading-tight;
+    font-stretch: 75%;
+    letter-spacing: 0;
   }
 }
 
 @layer utilities {
+  .font-condensed {
+    font-stretch: 75%;
+  }
+
+  /* Cartographic label halo: keeps small text legible over contours and fills. */
+  .halo {
+    text-shadow:
+      0 0 2px rgb(var(--ground)),
+      0 0 4px rgb(var(--ground)),
+      0 0 8px rgb(var(--ground)),
+      0 0 14px rgb(var(--ground));
+  }
+
   .sr-only-focusable {
-    @apply sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-50 focus:rounded-md focus:bg-teal focus:px-4 focus:py-2 focus:text-paper;
+    @apply sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-50 focus:bg-water focus:px-4 focus:py-2 focus:text-ground;
+  }
+
+  .text-hero {
+    font-size: clamp(3.75rem, 3.2rem + 11vw, 9.5rem);
+    line-height: 0.88;
+  }
+
+  .text-d1 {
+    font-size: clamp(2.5rem, 2rem + 3.5vw, 4.5rem);
+    line-height: 0.98;
+  }
+
+  .text-d2 {
+    font-size: clamp(1.75rem, 1.5rem + 1.4vw, 2.5rem);
+    line-height: 1.05;
+  }
+}
+
+/* ---- Motion (DESIGN.md §7): transform and opacity only ---- */
+@keyframes rise {
+  from {
+    opacity: 0;
+    transform: translateY(0.35em);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes reveal {
+  from {
+    opacity: 0;
+    transform: translateY(0.5rem);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.reveal-in {
+  animation: reveal 240ms cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.enter {
+  opacity: 0;
+  animation: rise 700ms cubic-bezier(0.22, 1, 0.36, 1) forwards;
+  animation-delay: calc(var(--i, 0) * 90ms + 60ms);
+}
+
+/* Rail gauge: marker slides down the rail as the page scrolls.
+   Scroll-driven where supported; otherwise it rests at the top. */
+@keyframes gauge-travel {
+  from {
+    transform: translateY(0);
+  }
+  to {
+    transform: translateY(var(--gauge-range, 12rem));
+  }
+}
+
+@supports (animation-timeline: scroll()) {
+  .gauge-marker {
+    animation: gauge-travel linear both;
+    animation-timeline: scroll(root block);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  .enter {
+    animation: none;
+    opacity: 1;
+  }
+
+  .reveal-in {
+    animation: none;
+  }
+
+  .gauge-marker {
+    animation: none !important;
+  }
+
+  *,
+  *::before,
+  *::after {
+    transition-duration: 0.01ms !important;
   }
 }
 

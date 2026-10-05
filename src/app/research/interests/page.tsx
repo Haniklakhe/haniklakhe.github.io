@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import { content } from "@/lib/content";
-import { Card } from "@/components/ui/Card";
 
 export const metadata: Metadata = {
   title: "Research Interests",
@@ -9,13 +8,13 @@ export const metadata: Metadata = {
 
 export default function ResearchInterestsPage() {
   return (
-    <div className="grid gap-6 sm:grid-cols-2">
-      {content.researchInterests.map((interest) => (
-        <Card key={interest.id} as="article">
-          <h3 className="font-display text-lg text-ink dark:text-paper">{interest.title}</h3>
-          <p className="mt-2 text-sm text-ink-soft dark:text-paper/70">{interest.description}</p>
-        </Card>
+    <ul>
+      {content.researchInterests.map((r) => (
+        <li key={r.id} className="grid gap-x-10 gap-y-2 border-b border-rule py-6 lg:grid-cols-12">
+          <h2 className="text-d2 text-ink lg:col-span-6">{r.title}</h2>
+          <p className="max-w-[60ch] text-ink-soft lg:col-span-5 lg:col-start-8">{r.description}</p>
+        </li>
       ))}
-    </div>
+    </ul>
   );
 }

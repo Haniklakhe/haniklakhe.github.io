@@ -11,7 +11,7 @@ export function CopyCitationButton({ citation }: { citation: string }) {
       setCopied(true);
       window.setTimeout(() => setCopied(false), 2000);
     } catch {
-      // Clipboard API unavailable (e.g. insecure context) — fail silently.
+      // Clipboard API unavailable (e.g. insecure context): the button simply does nothing.
     }
   }
 
@@ -19,9 +19,10 @@ export function CopyCitationButton({ citation }: { citation: string }) {
     <button
       type="button"
       onClick={handleCopy}
-      className="inline-flex shrink-0 items-center gap-1.5 rounded-md border border-border px-3 py-1.5 text-xs font-medium text-ink-soft transition-colors hover:border-teal hover:text-teal dark:border-border-dark dark:text-paper/70 dark:hover:border-teal-light dark:hover:text-teal-light"
+      aria-live="polite"
+      className="inline-flex min-h-11 items-center border border-rule px-4 font-display text-[0.9375rem] font-semibold font-condensed text-ink-soft transition-[transform,color,border-color] duration-150 ease-state hover:border-water hover:text-water active:scale-[0.97]"
     >
-      {copied ? "Copied!" : "Copy citation"}
+      {copied ? "Copied" : "Copy citation"}
     </button>
   );
 }

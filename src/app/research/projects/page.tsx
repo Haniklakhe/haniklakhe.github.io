@@ -1,8 +1,9 @@
 import type { Metadata } from "next";
 import { content, isPlaceholder } from "@/lib/content";
-import { Card } from "@/components/ui/Card";
-import { Chip } from "@/components/ui/Chip";
+import { summarize } from "@/lib/utils";
 import { PhotoFrame } from "@/components/ui/PhotoFrame";
+import { Reveal } from "@/components/ui/Reveal";
+import { Tile } from "@/components/ui/Tile";
 
 export const metadata: Metadata = {
   title: "Research Projects",
@@ -11,74 +12,62 @@ export const metadata: Metadata = {
 
 export default function ResearchProjectsPage() {
   return (
-    <div className="space-y-8">
-      {content.researchProjects.map((project, index) => {
-        const reversed = index % 2 === 1;
+    <div className="space-y-6">
+      {content.researchProjects.map((p, i) => {
+        const { summary, truncated } = summarize(p.description);
+        const role = isPlaceholder(p.role) ? "Research Associate" : p.role;
+        const flip = i % 2 === 1;
+        const meta = [
+          p.fundedBy && ["Funded by", p.fundedBy],
+          p.collaborators && p.collaborators.length > 0 && ["Collaborators", p.collaborators.join(", ")],
+        ].filter(Boolean) as string[][];
         return (
-          <Card key={project.id} as="article" className="overflow-hidden">
-            <div
-              className={`flex flex-col gap-6 sm:gap-10 sm:items-center ${
-                reversed ? "sm:flex-row-reverse" : "sm:flex-row"
-              }`}
-            >
+          <Tile as="article" key={p.id} flush>
+            <div className="grid lg:grid-cols-12">
               <PhotoFrame
-                src={project.image}
-                alt={project.title}
-                className="aspect-[4/3] w-full sm:w-2/5 sm:shrink-0"
+                src={p.image}
+                alt={p.title}
+                priority={i === 0}
+                className={`aspect-[4/3] w-full border-0 lg:col-span-5 lg:aspect-auto lg:min-h-[18rem] ${
+                  flip ? "lg:order-2 lg:border-l" : "lg:border-r"
+                } border-b lg:border-b-0`}
               />
-
-              <div className="sm:flex-1">
-                <div className="flex flex-wrap items-center gap-2">
-                  <Chip tone="teal" className="text-xs">
-                    {project.type}
-                  </Chip>
-                </div>
-
-                <h3 className="mt-3 font-display text-xl text-ink dark:text-paper">
-                  {project.title}
-                </h3>
-
-                <p className="mt-1 text-sm font-medium text-ink-soft dark:text-paper/70">
-                  {project.institution}
-                  {project.location && <> · {project.location}</>}
+              <div className={`p-6 sm:p-8 lg:col-span-7 ${flip ? "lg:order-1" : ""}`}>
+                <p className="label text-ink-soft">{p.type}</p>
+                <h2 className="text-d2 mt-2 max-w-[30ch] text-ink">{p.title}</h2>
+                <p className="mt-2 font-display text-[1.0625rem] font-semibold font-condensed text-water">
+                  {role} · {p.institution}
+                  {p.location && <> · {p.location}</>}
                 </p>
-
-                <p className="mt-1 text-xs text-ink-soft/80 dark:text-paper/50">
-                  Role: {isPlaceholder(project.role) ? "Research Associate" : project.role}
-                </p>
-
-                <p className="mt-4 text-sm leading-relaxed text-ink-soft dark:text-paper/70">
-                  {project.description}
-                </p>
-
-                {project.collaborators && project.collaborators.length > 0 && (
-                  <p className="mt-3 text-xs text-ink-soft dark:text-paper/60">
-                    <span className="font-medium text-ink dark:text-paper">Collaborators: </span>
-                    {project.collaborators.join(", ")}
-                  </p>
+                {truncated ? (
+                  <Reveal summary={<p className="mt-4 max-w-[62ch] leading-[1.6] text-ink-soft">{summary}</p>}>
+                    <p className="mt-4 max-w-[62ch] leading-[1.6] text-ink-soft">{p.description}</p>
+                  </Reveal>
+                ) : (
+                  <p className="mt-4 max-w-[62ch] leading-[1.6] text-ink-soft">{p.description}</p>
                 )}
-
-                {project.fundedBy && (
-                  <p className="mt-1 text-xs text-ink-soft dark:text-paper/60">
-                    <span className="font-medium text-ink dark:text-paper">Funded by: </span>
-                    {project.fundedBy}
-                  </p>
+                {meta.length > 0 && (
+                  <dl className="mt-3 space-y-1 text-[0.9375rem]">
+                    {meta.map(([k, v]) => (
+                      <div key={k} className="flex gap-2">
+                        <dt className="font-semibold">{k}:</dt>
+                        <dd className="text-ink-soft">{v}</dd>
+                      </div>
+                    ))}
+                  </dl>
                 )}
-
-                {project.tools && project.tools.length > 0 && (
-                  <ul className="mt-4 flex flex-wrap gap-2">
-                    {project.tools.map((tool) => (
-                      <li key={tool}>
-                        <Chip tone="neutral" className="text-xs">
-                          {tool}
-                        </Chip>
+                {p.tools && p.tools.length > 0 && (
+                  <ul className="mt-4 flex flex-wrap gap-x-5 gap-y-1">
+                    {p.tools.map((t) => (
+                      <li key={t} className="label border-l-2 border-water pl-2 text-ink">
+                        {t}
                       </li>
                     ))}
                   </ul>
                 )}
               </div>
             </div>
-          </Card>
+          </Tile>
         );
       })}
     </div>

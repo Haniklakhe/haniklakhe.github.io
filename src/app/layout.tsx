@@ -1,23 +1,9 @@
 import type { Metadata } from "next";
-import { Fraunces, Inter } from "next/font/google";
 import "./globals.css";
 import { content, getSiteUrl } from "@/lib/content";
 import { ThemeScript } from "@/components/layout/ThemeScript";
-import { SiteHeader } from "@/components/layout/SiteHeader";
+import { SceneRail } from "@/components/layout/SceneRail";
 import { SiteFooter } from "@/components/layout/SiteFooter";
-
-const fraunces = Fraunces({
-  subsets: ["latin"],
-  variable: "--font-display",
-  weight: ["400", "500", "600", "700"],
-  display: "swap",
-});
-
-const inter = Inter({
-  subsets: ["latin"],
-  variable: "--font-sans",
-  display: "swap",
-});
 
 export const metadata: Metadata = {
   metadataBase: new URL(getSiteUrl()),
@@ -42,20 +28,22 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html
-      lang="en"
-      suppressHydrationWarning
-      data-scroll-behavior="smooth"
-      className={`${fraunces.variable} ${inter.variable}`}
-    >
-      <body className="min-h-screen font-sans antialiased">
+    <html lang="en" suppressHydrationWarning data-scroll-behavior="smooth">
+      <head>
+        {["instrument-sans-condensed", "source-serif-4-400", "source-serif-4-600"].map((f) => (
+          <link key={f} rel="preload" href={`/fonts/${f}.woff2`} as="font" type="font/woff2" crossOrigin="anonymous" />
+        ))}
+      </head>
+      <body className="min-h-screen antialiased">
         <ThemeScript />
         <a href="#main-content" className="sr-only-focusable">
           Skip to content
         </a>
-        <SiteHeader />
-        <main id="main-content">{children}</main>
-        <SiteFooter />
+        <SceneRail />
+        <div className="lg:pl-60">
+          <main id="main-content">{children}</main>
+          <SiteFooter />
+        </div>
       </body>
     </html>
   );

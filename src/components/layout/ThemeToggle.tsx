@@ -13,7 +13,11 @@ export function ThemeToggle() {
   function toggle() {
     const next = !document.documentElement.classList.contains("dark");
     document.documentElement.classList.toggle("dark", next);
-    window.localStorage.setItem("theme", next ? "dark" : "light");
+    try {
+      window.localStorage.setItem("theme", next ? "dark" : "light");
+    } catch {
+      /* storage unavailable: the choice still applies for this visit */
+    }
     setIsDark(next);
   }
 
@@ -22,9 +26,9 @@ export function ThemeToggle() {
       type="button"
       onClick={toggle}
       aria-label={isDark ? "Switch to light mode" : "Switch to dark mode"}
-      className="flex h-9 w-9 items-center justify-center rounded-full border border-border text-ink-soft transition-colors hover:border-teal hover:text-teal dark:border-border-dark dark:text-paper/70 dark:hover:border-teal-light dark:hover:text-teal-light"
+      className="flex h-11 w-11 items-center justify-center border border-rule text-ink-soft transition-[transform,color,border-color] duration-150 ease-state hover:border-water hover:text-water active:scale-95"
     >
-      {isDark ? <SunIcon width={16} height={16} /> : <MoonIcon width={16} height={16} />}
+      {isDark ? <SunIcon width={18} height={18} /> : <MoonIcon width={18} height={18} />}
     </button>
   );
 }
