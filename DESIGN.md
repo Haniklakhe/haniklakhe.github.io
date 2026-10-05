@@ -15,9 +15,9 @@ Hard nos (from the brief and interview): purple/blue gradient hero, glassmorphis
 ## 2. Content rules
 
 - Only real content from `content/content.json`. Never invent publications, projects, numbers or affiliations.
-- Any value starting `ADD_` is a gap. It is never rendered raw. It renders as a visible `TODO` marker in development builds only, and is omitted in production builds. The list of gaps is kept in `TODO.md`.
+- Any value starting `ADD_` is a gap. It is never rendered raw. It renders as a visible `TODO` marker in development builds only, and is omitted in production builds. To list the open gaps, search `content/content.json` for `"ADD_`.
 - Long text collapses to a 2 to 3 line summary with the **full original text kept** behind an expand control. Summaries are the first sentence(s) of the existing text, never rewritten claims.
-- Open question to the owner: `academicStatus` says "MSc Candidate (2024–2026)" but the bio says graduate. The hero uses the current role only until this is confirmed.
+- `academicStatus` is confirmed: MSc completed (2026). The hero shows the current role.
 
 ## 3. Colour tokens
 
