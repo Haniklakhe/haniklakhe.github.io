@@ -253,7 +253,7 @@
   }
 }
 
-@media (prefers-reduced-motion: reduce), print {
+@media print {
   .sr,
   .sr-x,
   .title-rule::after {
@@ -261,27 +261,29 @@
   }
 }
 
+/* The visitor's OS asks for reduced motion. The "Motion" button in the rail sets
+   data-motion="on" on <html> to opt back in for this visit. */
 @media (prefers-reduced-motion: reduce) {
-  html {
+  html:not([data-motion="on"]) {
     scroll-behavior: auto;
   }
 
-  .enter {
+  html:not([data-motion="on"]) .sr,
+  html:not([data-motion="on"]) .sr-x,
+  html:not([data-motion="on"]) .title-rule::after,
+  html:not([data-motion="on"]) .reveal-in,
+  html:not([data-motion="on"]) .gauge-marker {
+    animation: none !important;
+  }
+
+  html:not([data-motion="on"]) .enter {
     animation: none;
     opacity: 1;
   }
 
-  .reveal-in {
-    animation: none;
-  }
-
-  .gauge-marker {
-    animation: none !important;
-  }
-
-  *,
-  *::before,
-  *::after {
+  html:not([data-motion="on"]) *,
+  html:not([data-motion="on"]) *::before,
+  html:not([data-motion="on"]) *::after {
     transition-duration: 0.01ms !important;
   }
 }

@@ -27,10 +27,17 @@ export function MotionFigure({
 
   useEffect(() => {
     const mq = window.matchMedia("(prefers-reduced-motion: reduce)");
-    setReduced(mq.matches);
-    const on = () => setReduced(mq.matches);
-    mq.addEventListener("change", on);
-    return () => mq.removeEventListener("change", on);
+    const root = document.documentElement;
+    // Reduced only if the system asks for it and the visitor has not opted in.
+    const sync = () => setReduced(mq.matches && root.dataset.motion !== "on");
+    sync();
+    mq.addEventListener("change", sync);
+    const mo = new MutationObserver(sync);
+    mo.observe(root, { attributes: true, attributeFilter: ["data-motion"] });
+    return () => {
+      mq.removeEventListener("change", sync);
+      mo.disconnect();
+    };
   }, []);
 
   useEffect(() => {

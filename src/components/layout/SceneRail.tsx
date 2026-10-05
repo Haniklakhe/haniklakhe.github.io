@@ -5,6 +5,7 @@ import { usePathname } from "next/navigation";
 import { useState } from "react";
 import { content } from "@/lib/content";
 import { ThemeToggle } from "./ThemeToggle";
+import { MotionToggle } from "./MotionToggle";
 import { CloseIcon, MenuIcon } from "@/components/ui/Icons";
 
 const NAV_ITEMS = [
@@ -104,7 +105,10 @@ export function SceneRail() {
               {person.location.split(",").slice(-2).join(",").trim()}
             </p>
           </div>
-          <ThemeToggle />
+          <div className="flex flex-col items-end gap-2">
+            <MotionToggle />
+            <ThemeToggle />
+          </div>
         </div>
       </aside>
 
@@ -119,6 +123,7 @@ export function SceneRail() {
             {person.name}
           </Link>
           <div className="flex items-center gap-2">
+            <MotionToggle />
             <ThemeToggle />
             <button
               type="button"
