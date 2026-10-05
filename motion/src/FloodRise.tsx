@@ -25,8 +25,8 @@ export const FloodRise: React.FC = () => {
   const t = frame / (durationInFrames - 1);
   const level = q(t);
 
-  // Hydrograph box (in 800 x 500 px)
-  const bx = 36, by = 318, bw = 300, bh = 146;
+  // Hydrograph box (in 800 x 500 px). Top-left sits over dry hillslope, clear of the channel and floodplain.
+  const bx = 36, by = 36, bw = 300, bh = 146;
   const pts: string[] = [];
   const done: string[] = [];
   for (let k = 0; k <= 120; k++) {

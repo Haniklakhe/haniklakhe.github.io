@@ -1,5 +1,5 @@
-# dependencies
-/node_modules
+# dependencies (root and motion/)
+node_modules/
 /.pnp
 .pnp.js
 
@@ -35,8 +35,14 @@ yarn-error.log*
 
 # personal source documents (contain info deliberately excluded from the public site,
 # e.g. phone number/address) — kept locally only, never committed
-/Hanik Lakhe Curriculum Vitae.pdf
-/Profile.pdf
+/_private/
+
+# scratch output from Claude sessions (screenshots, preview builds)
+/Claude outputs/
+
+# motion/: render output and the terrain copy made by `npm run sync`
+/motion/out/
+/motion/src/terrain.ts
 
 # typescript
 *.tsbuildinfo
