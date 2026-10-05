@@ -1,0 +1,19 @@
+{
+  "name": "hanik-portfolio-motion",
+  "private": true,
+  "description": "Remotion source for the rendered clips in public/media. Not part of the Next.js build.",
+  "scripts": {
+    "sync": "cp ../src/lib/terrain.ts src/terrain.ts",
+    "poster": "npm run sync && remotion still src/index.ts FloodRise out/poster.png --frame=96",
+    "render": "npm run sync && remotion render src/index.ts FloodRise out/flood.mp4 --codec=h264 --crf=30 --pixel-format=yuv420p --muted && remotion render src/index.ts FloodRise out/flood.webm --codec=vp9 --crf=36 --muted"
+  },
+  "dependencies": {
+    "@remotion/bundler": "^4.0.0",
+    "@remotion/cli": "^4.0.0",
+    "@remotion/renderer": "^4.0.0",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
+    "remotion": "^4.0.0"
+  },
+  "devDependencies": { "@types/react": "^19.0.0", "typescript": "^5.0.0" }
+}
