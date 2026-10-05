@@ -37,8 +37,9 @@ yarn-error.log*
 # e.g. phone number/address) — kept locally only, never committed
 /_private/
 
-# scratch output from Claude sessions (screenshots, preview builds)
+# scratch output from Claude sessions (screenshots, preview builds, browser tests)
 /Claude outputs/
+/.playwright-mcp/
 
 # motion/: render output and the terrain copy made by `npm run sync`
 /motion/out/

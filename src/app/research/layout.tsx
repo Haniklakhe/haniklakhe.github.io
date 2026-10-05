@@ -1,16 +1,17 @@
-import { SectionTitle } from "@/components/ui/SectionTitle";
+import { PageBody, PageHeader } from "@/components/layout/PageHeader";
 import { ResearchTabs } from "@/components/research/ResearchTabs";
 
+/**
+ * The header and tabs persist across tab changes, so they enter once on load.
+ * Each tab's page root uses .tab-in: its first rows rise in on a stagger on every switch.
+ */
 export default function ResearchLayout({ children }: { children: React.ReactNode }) {
   return (
-    <div className="px-4 py-16 sm:px-6 lg:px-10 lg:py-24">
-      <SectionTitle as="h1" note="Interests, projects, publications and conference presentations.">
-        Research
-      </SectionTitle>
-      <div className="mt-6">
+    <>
+      <PageHeader page="research">
         <ResearchTabs />
-      </div>
-      <div className="mt-12">{children}</div>
-    </div>
+      </PageHeader>
+      <PageBody className="px-4 pb-16 pt-12 sm:px-6 lg:px-10 lg:pb-24">{children}</PageBody>
+    </>
   );
 }

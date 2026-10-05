@@ -8,5 +8,9 @@ export const metadata: Metadata = {
 };
 
 export default function PublicationsPage() {
-  return <PubList showTitle={false} />;
+  return (
+    <div className="tab-in">
+      <PubList showTitle={false} />
+    </div>
+  );
 }

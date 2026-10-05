@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { content } from "@/lib/content";
+import { PageBody, PageHeader } from "@/components/layout/PageHeader";
 import { ContactStrip } from "@/components/sections/ContactStrip";
 
 export const metadata: Metadata = {
@@ -8,5 +9,12 @@ export const metadata: Metadata = {
 };
 
 export default function ContactPage() {
-  return <ContactStrip headingAs="h1" />;
+  return (
+    <>
+      <PageHeader page="contact" />
+      <PageBody>
+        <ContactStrip />
+      </PageBody>
+    </>
+  );
 }

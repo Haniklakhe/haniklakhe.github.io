@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { content } from "@/lib/content";
+import { PageBody, PageHeader } from "@/components/layout/PageHeader";
 import { ExperienceLedger } from "@/components/sections/ExperienceLedger";
 
 export const metadata: Metadata = {
@@ -9,8 +10,11 @@ export const metadata: Metadata = {
 
 export default function ExperiencePage() {
   return (
-    <div className="px-4 py-16 sm:px-6 lg:px-10 lg:py-24">
-      <ExperienceLedger headingAs="h1" defaultOpen />
-    </div>
+    <>
+      <PageHeader page="experience" />
+      <PageBody className="border-t border-rule px-4 pb-16 sm:px-6 lg:px-10 lg:pb-24">
+        <ExperienceLedger headingAs="h1" showTitle={false} defaultOpen />
+      </PageBody>
+    </>
   );
 }

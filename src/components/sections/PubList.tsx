@@ -23,12 +23,12 @@ export function PubList({ headingAs = "h2" as "h1" | "h2", showTitle = true }) {
       <div>
         {grouped.map(([year, pubs]) =>
           pubs.map((pub, i) => (
-            <article key={pub.id} className="sr grid gap-x-8 gap-y-3 border-b border-rule py-7 lg:grid-cols-[6rem_minmax(0,1fr)_auto]">
+            <article key={pub.id} className="sr row-nudge grid gap-x-8 gap-y-3 border-b border-rule py-7 lg:grid-cols-[6rem_minmax(0,1fr)_auto]">
               <p className="font-display text-[2.5rem] font-bold leading-none font-condensed text-ink" aria-label={i === 0 ? `Year ${year}` : undefined}>
                 {i === 0 ? year : <span className="sr-only">{year}</span>}
               </p>
               <div>
-                <ItemHeading className="font-body text-[1.25rem] font-semibold leading-snug text-ink" style={{ fontStretch: "100%", letterSpacing: 0 }}>
+                <ItemHeading className="nudge font-body text-[1.25rem] font-semibold leading-snug text-ink" style={{ fontStretch: "100%", letterSpacing: 0 }}>
                   {pub.title}
                 </ItemHeading>
                 <p className="mt-2 max-w-[70ch] text-[1rem] leading-snug text-ink-soft">

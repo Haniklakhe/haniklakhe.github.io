@@ -8,10 +8,12 @@ export const metadata: Metadata = {
 
 export default function ResearchInterestsPage() {
   return (
-    <ul>
+    <ul className="tab-in">
       {content.researchInterests.map((r) => (
-        <li key={r.id} className="grid gap-x-10 gap-y-2 border-b border-rule py-6 lg:grid-cols-12">
-          <h2 className="text-d2 text-ink lg:col-span-6">{r.title}</h2>
+        <li key={r.id} className="sr row-nudge grid gap-x-10 gap-y-2 border-b border-rule py-6 lg:grid-cols-12">
+          <h2 className="nudge text-d2 text-ink lg:col-span-6">
+            {r.title}
+          </h2>
           <p className="max-w-[60ch] text-ink-soft lg:col-span-5 lg:col-start-8">{r.description}</p>
         </li>
       ))}

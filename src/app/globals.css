@@ -126,6 +126,13 @@
     line-height: 0.88;
   }
 
+  /* Page titles: one step below the hero name, and narrow enough that "Experience"
+     fits a 320px screen. */
+  .text-page {
+    font-size: clamp(3.25rem, 2.4rem + 9vw, 8.5rem);
+    line-height: 0.9;
+  }
+
   .text-d1 {
     font-size: clamp(2.5rem, 2rem + 3.5vw, 4.5rem);
     line-height: 0.98;
@@ -149,6 +156,27 @@
   }
 }
 
+/* Page-header terrain settles into place once on load. */
+@keyframes settle {
+  from {
+    opacity: 0;
+    transform: scale(1.04);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes draw-x {
+  from {
+    transform: scaleX(0);
+  }
+  to {
+    transform: none;
+  }
+}
+
 @keyframes reveal {
   from {
     opacity: 0;
@@ -168,6 +196,18 @@
   opacity: 0;
   animation: rise 700ms cubic-bezier(0.22, 1, 0.36, 1) forwards;
   animation-delay: calc(var(--i, 0) * 90ms + 60ms);
+}
+
+/* Short rule that draws in from the left, on the same stagger as .enter. */
+.enter-rule {
+  transform-origin: left center;
+  animation: draw-x 700ms cubic-bezier(0.22, 1, 0.36, 1) backwards;
+  animation-delay: calc(var(--i, 0) * 90ms + 160ms);
+}
+
+.scene-settle {
+  transform-origin: 70% 40%;
+  animation: settle 1200ms cubic-bezier(0.22, 1, 0.36, 1) backwards;
 }
 
 /* Rail gauge: marker slides down the rail as the page scrolls.
@@ -233,11 +273,45 @@
   transform-origin: left center;
 }
 
+/* Research tab content: the first rows rise in on a short stagger every time a tab
+   opens (rows already on screen would otherwise sit still, being past their scroll-in
+   range). Same keyframes as the scroll-in, so the motion reads as one system. */
+.tab-in .sr:nth-child(-n + 5) {
+  animation: sr-rise 480ms cubic-bezier(0.22, 1, 0.36, 1) backwards;
+  animation-delay: calc(var(--n, 0) * 60ms);
+}
+.tab-in .sr:nth-child(2) {
+  --n: 1;
+}
+.tab-in .sr:nth-child(3) {
+  --n: 2;
+}
+.tab-in .sr:nth-child(4) {
+  --n: 3;
+}
+.tab-in .sr:nth-child(5) {
+  --n: 4;
+}
+
 @supports (animation-timeline: view()) {
+  /* Keep the scroll-in as a second animation. It is listed last, so while it applies
+     (a row below the fold, or one mid-entry) it wins; once a row is past its range
+     only the time-based rise has an effect. */
+  .tab-in .sr:nth-child(-n + 5) {
+    animation:
+      sr-rise 480ms cubic-bezier(0.22, 1, 0.36, 1) backwards,
+      sr-rise linear backwards;
+    animation-timeline: auto, view();
+    animation-range: normal, entry 0% entry 120px;
+    animation-delay: calc(var(--n, 0) * 60ms), 0s;
+  }
+
+  /* A fixed 120px of scroll, not a percentage of the element: a percentage made tall
+     tiles (project cards) need ~250px of scrolling and rest half-faded when partly in view. */
   .sr {
     animation: sr-rise linear backwards;
     animation-timeline: view();
-    animation-range: entry 0% entry 55%;
+    animation-range: entry 0% entry 120px;
   }
 
   .sr-x {
@@ -251,11 +325,65 @@
     animation-timeline: view();
     animation-range: entry 10% entry 90%;
   }
+
+  /* Timeline bars draw from their start date as the row scrolls in. */
+  .sr-bar {
+    transform-origin: left center;
+    animation: sr-rule linear backwards;
+    animation-timeline: view();
+    animation-range: entry 20% cover 30%;
+  }
+}
+
+/* ---- Hover feedback: one vocabulary across every page, mouse and trackpad only ----
+   Tiles lift 2px, photos inside a tile ease in 3%, list rows nudge their heading 4px
+   right and darken their rule. Uses the individual `translate`/`scale` properties, so
+   hover never fights the scroll-in (which animates `transform`). */
+@media (hover: hover) and (pointer: fine) {
+  .tile-lift {
+    transition:
+      translate 200ms cubic-bezier(0.22, 1, 0.36, 1),
+      transform 150ms cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  /* Fills the 2px gap a lifted tile leaves, so a cursor resting on the bottom edge
+     stays over the tile instead of flickering it up and down. */
+  .tile-lift::after {
+    content: "";
+    position: absolute;
+    inset: 100% 0 auto 0;
+    height: 4px;
+  }
+  .tile-lift:hover {
+    translate: 0 -2px;
+  }
+
+  .photo-zoom {
+    transition: scale 400ms cubic-bezier(0.22, 1, 0.36, 1);
+  }
+  .tile-lift:hover .photo-zoom {
+    scale: 1.03;
+  }
+
+  .row-nudge {
+    transition: border-color 200ms ease;
+  }
+  .row-nudge .nudge {
+    transition: translate 200ms cubic-bezier(0.22, 1, 0.36, 1);
+  }
+  .row-nudge:hover {
+    border-color: rgb(var(--ink) / 0.45);
+  }
+  .row-nudge:hover .nudge {
+    translate: 0.25rem 0;
+  }
 }
 
 @media print {
   .sr,
   .sr-x,
+  .sr-bar,
+  .enter-rule,
+  .scene-settle,
   .title-rule::after {
     animation: none !important;
   }
@@ -270,8 +398,11 @@
 
   html:not([data-motion="on"]) .sr,
   html:not([data-motion="on"]) .sr-x,
+  html:not([data-motion="on"]) .sr-bar,
   html:not([data-motion="on"]) .title-rule::after,
   html:not([data-motion="on"]) .reveal-in,
+  html:not([data-motion="on"]) .enter-rule,
+  html:not([data-motion="on"]) .scene-settle,
   html:not([data-motion="on"]) .gauge-marker {
     animation: none !important;
   }
@@ -279,6 +410,15 @@
   html:not([data-motion="on"]) .enter {
     animation: none;
     opacity: 1;
+  }
+
+  /* Hover keeps its colour change but drops the movement. */
+  html:not([data-motion="on"]) .tile-lift:hover,
+  html:not([data-motion="on"]) .row-nudge:hover .nudge {
+    translate: none;
+  }
+  html:not([data-motion="on"]) .tile-lift:hover .photo-zoom {
+    scale: none;
   }
 
   html:not([data-motion="on"]) *,

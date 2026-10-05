@@ -11,8 +11,8 @@ export function InterestsIndex({ headingAs = "h2" as "h1" | "h2" }) {
       <div className="grid gap-x-12 gap-y-10 lg:grid-cols-12">
         <ul className="lg:col-span-8">
           {content.researchInterests.map((r) => (
-            <li key={r.id} className="sr group grid gap-x-8 gap-y-2 border-b border-rule py-6 xl:grid-cols-2">
-              <h3 className="text-d2 text-ink transition-transform duration-200 ease-enter group-hover:translate-x-1">
+            <li key={r.id} className="sr row-nudge grid gap-x-8 gap-y-2 border-b border-rule py-6 xl:grid-cols-2">
+              <h3 className="nudge text-d2 text-ink">
                 {r.title}
               </h3>
               <p className="max-w-[60ch] text-ink-soft">{r.description}</p>

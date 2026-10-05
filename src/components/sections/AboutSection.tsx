@@ -13,12 +13,10 @@ export function AboutSection({ full = false }: { full?: boolean }) {
 
   if (full) {
     return (
-      <section id="about" aria-labelledby="about-title" className="scroll-mt-4">
-        <SectionTitle id="about-title" as="h1">
-          About
-        </SectionTitle>
-        {/* Photo and biography tile share one grid row, so top and bottom edges line up. */}
-        <div className="mt-8 grid items-stretch gap-6 lg:grid-cols-12">
+      <section id="about" aria-label="Biography" className="scroll-mt-4">
+        {/* The page header carries the title. Photo and biography tile share one grid row,
+            so top and bottom edges line up. */}
+        <div className="grid items-stretch gap-6 lg:grid-cols-12">
           {person.photo && (
             <div className="sr relative aspect-[4/5] w-full max-w-sm border border-rule lg:col-span-5 lg:aspect-auto lg:max-w-none">
               <Image
@@ -32,7 +30,7 @@ export function AboutSection({ full = false }: { full?: boolean }) {
               />
             </div>
           )}
-          <Tile className={`sr flex flex-col justify-center ${person.photo ? "lg:col-span-7" : "lg:col-span-12"}`}>
+          <Tile className={`flex flex-col justify-center ${person.photo ? "lg:col-span-7" : "lg:col-span-12"}`}>
             <p className="max-w-[68ch] text-[1.125rem] leading-[1.65]">{biography}</p>
           </Tile>
         </div>
@@ -53,15 +51,20 @@ export function AboutSection({ full = false }: { full?: boolean }) {
       <SectionTitle id="about-title">About</SectionTitle>
       <div className="mt-8 grid items-stretch gap-6 lg:grid-cols-12">
         <Tile className="sr lg:col-span-7">
-          <p className="max-w-[60ch] text-[1.375rem] leading-[1.55]">{homeSummary}</p>
-          <div className="mt-4 flex flex-wrap items-center gap-x-8">
-            <Reveal labelOpen="Read the full biography" labelClose="Show less">
-              <p className="mt-4 max-w-[68ch] leading-[1.65] text-ink-soft">{biography}</p>
-            </Reveal>
-            <Link href="/about" className={linkCls}>
-              About, education and skills
-            </Link>
-          </div>
+          {/* The biography opens in place of the summary: its first sentence restates the
+              summary, so showing both would repeat it. */}
+          <Reveal
+            summary={<p className="max-w-[60ch] text-[1.375rem] leading-[1.55]">{homeSummary}</p>}
+            labelOpen="Read the full biography"
+            labelClose="Show less"
+            actions={
+              <Link href="/about" className={linkCls}>
+                About, education and skills
+              </Link>
+            }
+          >
+            <p className="max-w-[68ch] text-[1.125rem] leading-[1.65]">{biography}</p>
+          </Reveal>
         </Tile>
         <Tile tone="console" className="sr lg:col-span-5">
           <h3 className="font-display text-[1.375rem] font-bold font-condensed">At a glance</h3>

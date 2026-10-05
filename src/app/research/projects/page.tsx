@@ -12,7 +12,7 @@ export const metadata: Metadata = {
 
 export default function ResearchProjectsPage() {
   return (
-    <div className="space-y-6">
+    <div className="tab-in space-y-6">
       {content.researchProjects.map((p, i) => {
         const { summary, truncated } = summarize(p.description);
         const role = isPlaceholder(p.role) ? "Research Associate" : p.role;

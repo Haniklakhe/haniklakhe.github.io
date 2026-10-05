@@ -4,6 +4,8 @@ import type { ExperienceEntry } from "@/lib/types";
 import { Reveal } from "@/components/ui/Reveal";
 import { SectionTitle } from "@/components/ui/SectionTitle";
 
+export const EXPERIENCE_NOTE = "The bar under each experience shows where it falls between 2019 and present.";
+
 function range(entry: ExperienceEntry): { start: number; end: number } | null {
   if (entry.period && !isPlaceholder(entry.period)) return parsePeriod(entry.period);
   const parts = (entry.roles ?? []).map((r) => parsePeriod(r.period)).filter(Boolean) as { start: number; end: number }[];
@@ -19,7 +21,7 @@ function Track({ r, axis, current }: { r: { start: number; end: number }; axis: 
   return (
     <div aria-hidden="true" className="relative mt-2 h-2 w-full bg-rule/70">
       <span
-        className={`absolute inset-y-0 ${current ? "bg-nir-graphic" : "bg-water"}`}
+        className={`sr-bar absolute inset-y-0 ${current ? "bg-nir-graphic" : "bg-water"}`}
         style={{ left: `${left}%`, width: `${width}%` }}
       />
     </div>
@@ -29,9 +31,12 @@ function Track({ r, axis, current }: { r: { start: number; end: number }; axis: 
 export function ExperienceLedger({
   headingAs = "h2" as "h1" | "h2",
   defaultOpen = false,
+  showTitle = true,
 }: {
   headingAs?: "h1" | "h2";
   defaultOpen?: boolean;
+  /** False when the page header already shows the title and note. */
+  showTitle?: boolean;
 }) {
   const entries = content.experience;
   const EntryHeading = headingAs === "h1" ? "h2" : "h3";
@@ -45,14 +50,17 @@ export function ExperienceLedger({
   for (let y = axis.min; y <= Math.floor(axis.max); y++) years.push(y);
 
   return (
-    <section id="experience" aria-labelledby="exp-title" className="scroll-mt-4">
-      <SectionTitle
-        id="exp-title"
-        as={headingAs}
-        note="The bar under each experience shows where it falls between 2019 and present."
-      >
-        Experience
-      </SectionTitle>
+    <section
+      id="experience"
+      aria-labelledby={showTitle ? "exp-title" : undefined}
+      aria-label={showTitle ? undefined : "Experience"}
+      className="scroll-mt-4"
+    >
+      {showTitle && (
+        <SectionTitle id="exp-title" as={headingAs} note={EXPERIENCE_NOTE}>
+          Experience
+        </SectionTitle>
+      )}
 
       <ol>
         {entries.map((e, i) => {
@@ -60,7 +68,7 @@ export function ExperienceLedger({
           const showLocation = !isPlaceholder(e.location);
           const periodText = e.period && !isPlaceholder(e.period) ? e.period : null;
           return (
-            <li key={e.id} className="sr grid gap-x-10 gap-y-3 border-b border-rule py-7 lg:grid-cols-12">
+            <li key={e.id} className="sr row-nudge grid gap-x-10 gap-y-3 border-b border-rule py-7 lg:grid-cols-12">
               <div className="lg:col-span-3">
                 {periodText && <p className="label text-ink">{periodText}</p>}
                 {e.totalDuration && <p className="label text-ink-soft">{e.totalDuration}</p>}
@@ -74,7 +82,7 @@ export function ExperienceLedger({
                 )}
               </div>
               <div className="lg:col-span-9">
-                <EntryHeading className="text-d2 max-w-[28ch] text-ink">{e.organization}</EntryHeading>
+                <EntryHeading className="nudge text-d2 max-w-[28ch] text-ink">{e.organization}</EntryHeading>
                 {e.title && <p className="mt-1 font-display text-[1.125rem] font-semibold font-condensed text-water">{e.title}</p>}
                 {showLocation && <p className="mt-0.5 text-[0.9375rem] text-ink-soft">{e.location}</p>}
 

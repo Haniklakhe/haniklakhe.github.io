@@ -10,15 +10,15 @@ export const metadata: Metadata = {
 export default function ConferencesPage() {
   const grouped = groupByYearDesc(content.conferences);
   return (
-    <div>
+    <div className="tab-in">
       {grouped.map(([year, entries]) =>
         entries.map((e, i) => (
-          <article key={e.id} className="grid gap-x-8 gap-y-3 border-b border-rule py-7 lg:grid-cols-[6rem_minmax(0,1fr)_14rem]">
-            <p className="font-display text-[2.5rem] font-bold leading-none font-condensed text-ink">
+          <article key={e.id} className="sr row-nudge grid gap-x-8 gap-y-3 border-b border-rule py-7 lg:grid-cols-[6rem_minmax(0,1fr)_14rem]">
+            <p className="sr-x font-display text-[2.5rem] font-bold leading-none font-condensed text-ink">
               {i === 0 ? year : <span className="sr-only">{year}</span>}
             </p>
             <div>
-              <h2 className="font-body text-[1.25rem] font-semibold leading-snug text-ink" style={{ fontStretch: "100%", letterSpacing: 0 }}>
+              <h2 className="nudge font-body text-[1.25rem] font-semibold leading-snug text-ink" style={{ fontStretch: "100%", letterSpacing: 0 }}>
                 {e.title}
               </h2>
               <p className="mt-2 max-w-[70ch] text-[1rem] leading-snug text-ink-soft">{e.authors}</p>

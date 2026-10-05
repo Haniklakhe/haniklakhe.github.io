@@ -2,7 +2,7 @@ import type { ReactNode } from "react";
 
 /**
  * A scene tile: hairline-edged panel. No shadows, no pills.
- * `interactive` adds the 2px lift on hover (transform only).
+ * Every tile lifts 2px on hover (`.tile-lift`, mouse only); `interactive` adds a press scale.
  */
 export function Tile({
   children,
@@ -27,10 +27,8 @@ export function Tile({
   } as const;
   return (
     <Tag
-      className={`sr border ${flush ? "" : "p-5 sm:p-8"} ${tones[tone]} ${
-        interactive
-          ? "transition-transform duration-150 ease-state hover:-translate-y-0.5 active:scale-[0.99]"
-          : ""
+      className={`sr tile-lift relative border ${flush ? "" : "p-5 sm:p-8"} ${tones[tone]} ${
+        interactive ? "active:scale-[0.99]" : ""
       } ${className}`}
     >
       {children}

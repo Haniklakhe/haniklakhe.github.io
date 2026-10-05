@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { content } from "@/lib/content";
+import { PageBody, PageHeader } from "@/components/layout/PageHeader";
 import { AboutSection } from "@/components/sections/AboutSection";
 import { Credentials } from "@/components/sections/Credentials";
 import { SkillIndex } from "@/components/sections/SkillIndex";
@@ -11,10 +12,13 @@ export const metadata: Metadata = {
 
 export default function AboutPage() {
   return (
-    <div className="space-y-24 px-4 py-16 sm:px-6 lg:space-y-32 lg:px-10 lg:py-24">
-      <AboutSection full />
-      <Credentials />
-      <SkillIndex />
-    </div>
+    <>
+      <PageHeader page="about" />
+      <PageBody className="space-y-24 px-4 pb-16 pt-4 sm:px-6 lg:space-y-32 lg:px-10 lg:pb-24">
+        <AboutSection full />
+        <Credentials />
+        <SkillIndex />
+      </PageBody>
+    </>
   );
 }

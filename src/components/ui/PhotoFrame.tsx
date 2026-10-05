@@ -37,7 +37,7 @@ export function PhotoFrame({
         fill
         sizes={sizes}
         priority={priority}
-        className={isFigure ? "object-contain p-3" : "object-cover"}
+        className={`photo-zoom ${isFigure ? "object-contain p-3" : "object-cover"}`}
       />
     </div>
   );
