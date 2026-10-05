@@ -73,8 +73,10 @@ export function MotionFigure({
             poster={poster}
             aria-hidden="true"
           >
-            <source src={webm} type="video/webm" />
+            {/* MP4 first: Chrome decodes only the first frame of the Remotion VP9 WebM
+                and then stalls, while the H.264 MP4 loops cleanly (and is smaller). */}
             <source src={mp4} type="video/mp4" />
+            <source src={webm} type="video/webm" />
           </video>
         )}
       </div>
