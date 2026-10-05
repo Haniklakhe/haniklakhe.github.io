@@ -60,7 +60,7 @@ export function ExperienceLedger({
           const showLocation = !isPlaceholder(e.location);
           const periodText = e.period && !isPlaceholder(e.period) ? e.period : null;
           return (
-            <li key={e.id} className="grid gap-x-10 gap-y-3 border-b border-rule py-7 lg:grid-cols-12">
+            <li key={e.id} className="sr grid gap-x-10 gap-y-3 border-b border-rule py-7 lg:grid-cols-12">
               <div className="lg:col-span-3">
                 {periodText && <p className="label text-ink">{periodText}</p>}
                 {e.totalDuration && <p className="label text-ink-soft">{e.totalDuration}</p>}

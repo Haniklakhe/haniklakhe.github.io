@@ -102,7 +102,7 @@ Detail routes (`/about`, `/research/*`, `/experience`, `/contact`) are **kept** 
 - Only `transform` and `opacity` are animated. No layout properties. `will-change` only during an active animation.
 - Easing: enter `cubic-bezier(0.22, 1, 0.36, 1)`; exit `cubic-bezier(0.4, 0, 1, 1)`; state change `cubic-bezier(0.4, 0, 0.2, 1)`.
 - Durations: press 100ms; hover/focus 160ms; state change 240ms; band crossfade 480ms; hero entrance 700ms.
-- **One orchestrated entrance** (hero, once on load). Sections are not individually faded in on scroll.
+- **Hero entrance** (once on load) plus **scroll-in motion** across the page (owner request after review): tiles, list rows and contact text rise in, section titles slide in from the left and their rule draws across, each as it enters the viewport. Pure CSS view timelines (`.sr`, `.sr-x`, `.title-rule`), transform and opacity only, `backwards` fill so hover transforms still work. Browsers without view timelines show everything static.
 - Scroll effects use CSS scroll-driven animation (`animation-timeline`) with an `@supports` fallback to a static state. The only scroll-linked element is the rail readout.
 - Hover/press: tiles lift 2px (`translateY`) on hover; press scales to 0.985; focus uses a 2px `water` outline with 3px offset.
 - `prefers-reduced-motion: reduce` removes all non-essential motion: no entrance, no crossfade (instant swap), no scroll-linked rail, no video autoplay.

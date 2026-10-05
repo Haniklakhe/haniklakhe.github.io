@@ -27,7 +27,7 @@ export function SkillIndex({ headingAs = "h2" as "h1" | "h2" }) {
       </SectionTitle>
       <div>
         {content.skills.map((g) => (
-          <div key={g.category} className="grid gap-x-10 gap-y-2 border-b border-rule py-5 lg:grid-cols-12">
+          <div key={g.category} className="sr grid gap-x-10 gap-y-2 border-b border-rule py-5 lg:grid-cols-12">
             <h3 className="font-display text-[1.375rem] font-bold leading-tight font-condensed text-ink lg:col-span-4">{g.category}</h3>
             <ul className="flex flex-wrap gap-x-6 gap-y-1 lg:col-span-8">
               {g.items.map((item) => (

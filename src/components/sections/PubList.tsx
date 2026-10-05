@@ -23,7 +23,7 @@ export function PubList({ headingAs = "h2" as "h1" | "h2", showTitle = true }) {
       <div>
         {grouped.map(([year, pubs]) =>
           pubs.map((pub, i) => (
-            <article key={pub.id} className="grid gap-x-8 gap-y-3 border-b border-rule py-7 lg:grid-cols-[6rem_minmax(0,1fr)_auto]">
+            <article key={pub.id} className="sr grid gap-x-8 gap-y-3 border-b border-rule py-7 lg:grid-cols-[6rem_minmax(0,1fr)_auto]">
               <p className="font-display text-[2.5rem] font-bold leading-none font-condensed text-ink" aria-label={i === 0 ? `Year ${year}` : undefined}>
                 {i === 0 ? year : <span className="sr-only">{year}</span>}
               </p>

@@ -12,10 +12,10 @@ export function ContactStrip({ headingAs = "h2" as "h1" | "h2" }) {
     <section id="contact" aria-labelledby="contact-title" className="scroll-mt-4 bg-console text-console-ink">
       <div className="grid gap-10 px-4 py-16 sm:px-6 lg:grid-cols-12 lg:px-10 lg:py-24">
         <div className="lg:col-span-7">
-          <H id="contact-title" className="text-d1 text-console-ink">
+          <H id="contact-title" className="sr-x text-d1 text-console-ink">
             {collaborationCTA.heading}
           </H>
-          <p className="mt-6 max-w-[56ch] text-[1.25rem] leading-[1.55] text-console-ink/85">{collaborationCTA.body}</p>
+          <p className="sr mt-6 max-w-[56ch] text-[1.25rem] leading-[1.55] text-console-ink/85">{collaborationCTA.body}</p>
         </div>
         <div className="lg:col-span-4 lg:col-start-9">
           <a

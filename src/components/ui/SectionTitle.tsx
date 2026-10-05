@@ -12,8 +12,8 @@ export function SectionTitle({
   as?: "h1" | "h2";
 }) {
   return (
-    <div className="flex flex-wrap items-end justify-between gap-x-8 gap-y-2 border-b border-ink pb-3">
-      <Tag id={id} className="text-d1 text-ink">
+    <div className="title-rule relative flex flex-wrap items-end justify-between gap-x-8 gap-y-2 pb-3">
+      <Tag id={id} className="sr-x text-d1 text-ink">
         {children}
       </Tag>
       {note && <p className="max-w-sm text-[0.9375rem] leading-snug text-ink-soft">{note}</p>}

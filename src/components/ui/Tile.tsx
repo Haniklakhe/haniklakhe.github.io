@@ -27,7 +27,7 @@ export function Tile({
   } as const;
   return (
     <Tag
-      className={`border ${flush ? "" : "p-5 sm:p-8"} ${tones[tone]} ${
+      className={`sr border ${flush ? "" : "p-5 sm:p-8"} ${tones[tone]} ${
         interactive
           ? "transition-transform duration-150 ease-state hover:-translate-y-0.5 active:scale-[0.99]"
           : ""
