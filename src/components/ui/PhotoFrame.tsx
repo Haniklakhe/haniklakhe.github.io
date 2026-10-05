@@ -1,8 +1,8 @@
 import Image from "next/image";
 
 /**
- * Image slot for projects. Photographs fill the frame; figures (PNG diagrams and maps
- * with white backgrounds) are contained with padding so nothing is cropped.
+ * Image slot for projects. Photographs (JPEG) fill the frame; figures (PNG/WebP diagrams
+ * and maps with white backgrounds) are contained with padding so nothing is cropped.
  */
 export function PhotoFrame({
   src,
@@ -28,7 +28,7 @@ export function PhotoFrame({
       </div>
     );
   }
-  const isFigure = src.toLowerCase().endsWith(".png");
+  const isFigure = !/\.jpe?g$/i.test(src);
   return (
     <div className={`relative overflow-hidden border border-rule ${isFigure ? "bg-white" : "bg-ground"} ${className}`}>
       <Image

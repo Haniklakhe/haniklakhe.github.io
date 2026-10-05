@@ -25,7 +25,7 @@ export function InterestsIndex({ headingAs = "h2" as "h1" | "h2" }) {
             mp4="/media/flood-rise.mp4"
             webm="/media/flood-rise.webm"
             poster="/media/flood-rise-poster.webp"
-            caption="An illustrative flood rises over a generated river valley as its hydrograph peaks and recedes. Terrain and curve are made for this page, not measured data."
+            caption="An illustrative flood rises over a river as its hydrograph peaks and recedes. Terrain and curve are made for this page, not measured data."
           />
         </div>
       </div>

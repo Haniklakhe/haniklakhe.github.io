@@ -21,7 +21,7 @@ export function SkillIndex({ headingAs = "h2" as "h1" | "h2" }) {
       <SectionTitle
         id="skills-title"
         as={headingAs}
-        note="Grouped by domain. A level appears only where one is self-rated in the CV."
+        note="The bars next to each skill indicate the level of proficiency"
       >
         Tools and methods
       </SectionTitle>

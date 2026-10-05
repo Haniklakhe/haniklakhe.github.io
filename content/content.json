@@ -24,16 +24,16 @@
     ],
     "excludedByRequest": "Academic term reports, course projects, and both the MSc and BSc thesis write-ups were intentionally left out of researchProjects per your instruction. The MSc and BSc thesis titles/advisors/tools are still captured under `education` (they aren't lost, just not duplicated as standalone project cards).",
     "additionalProjectsFromUser": "The four S4W-Nepal projects added after the initial extraction (Citizen Science-based Hydro-meteorological Monitoring of the Kathmandu Valley, REAMO, VICTORY, and Smartphone-Based Urban Flood Modelling) came from project descriptions you supplied directly, not from the CV or LinkedIn. Those source documents don't state your specific role/title on each project — per your instruction, role now defaults to 'Research Associate' (your actual title at Smartphones For Water Nepal during that era, and your current title). Exact start-end dates for these four are still marked ADD_PERIOD (not currently displayed on the Projects page, which no longer shows dates per your request, but still present in the data). The MESSHI entry was also enriched with the fuller project description you supplied (University of Pittsburgh collaboration) without removing the role-specific detail already sourced from the CV.",
-    "imageOptimization": "profile.jpg was originally a 9MB, 3376x6000px camera-native photo, which made even server-side optimization slow on first load. Resized in place to 900x1600 (~0.13MB). aiib-cambodia-climate-risk.png (was 3070x3188, 1.28MB) resized to 1348x1400 (~0.6MB), alpha channel preserved. swat-northern-thailand.png (was 2717x1439, 2.79MB) resized to 1600x847 (~1.25MB). All still look sharp at the sizes actually displayed on the site; if you ever add another very large source photo, tell me and I'll pre-resize it the same way.",
-    "imageNamingConvention": "All images are now live: 7 of 7 project photos under /public/images/projects/<project id>.<ext> (two — aiib-cambodia-climate-risk and swat-northern-thailand — are .png, the rest .jpg) and the profile photo at /public/images/profile.jpg (used on both Home and About). Nothing outstanding on images.",
+    "imageOptimization": "profile.jpg was originally a 9MB, 3376x6000px camera-native photo, which made even server-side optimization slow on first load. Resized in place to 900x1600 (~0.13MB). aiib-cambodia-climate-risk and swat-northern-thailand (3507 and 3092 px PNGs, 3.3MB together) converted to 1800px-wide WebP with alpha (~0.12MB each). All still look sharp at the sizes actually displayed on the site; if you ever add another very large source photo, tell me and I'll pre-resize it the same way.",
+    "imageNamingConvention": "All images are now live: 7 of 7 project photos under /public/images/projects/<project id>.<ext> (two — aiib-cambodia-climate-risk and swat-northern-thailand — are .webp, the rest .jpg) and the profile photo at /public/images/profile.jpg (used on both Home and About). Nothing outstanding on images.",
     "currentRoleTransition": "Confirmed: GWSC ended April 30, 2026 (shown as 'June 2025 – April 2026', matching the month-level granularity used everywhere else on the site). New role: Research Associate, Water Engineering and Management, Faculty of Civil and Environmental Engineering (FCEE), Asian Institute of Technology (AIT) — location Pathum Thani, Thailand, same as other AIT-based entries. One inference not yet explicitly confirmed: the start date was set to 'May 2026 – Present', inferred from 'April 30 until, and then FCEE' implying immediate continuation with no gap. Correct this in the exp-fcee entry (and person.currentRole if relevant) if there was a gap or a different start date."
   },
 
   "site": {
     "name": "Hanik Lakhe",
     "title": "Hanik Lakhe | Water Engineer & Hydrologist",
-    "description": "Academic portfolio of Hanik Lakhe, a Water Engineering and Management graduate student at the Asian Institute of Technology specializing in hydrological modelling, remote sensing and GIS, and climate risk analysis.",
-    "url": "ADD_PRODUCTION_URL",
+    "description": "Academic portfolio of Hanik Lakhe, a Research Associate at the Asian Institute of Technology and MSc graduate in Water Engineering and Management, specializing in hydrological modelling, remote sensing and GIS, and climate risk analysis.",
+    "url": "https://haniklakhe.github.io",
     "locale": "en_US"
   },
 
@@ -48,13 +48,13 @@
       "organization": "Water Engineering and Management, Faculty of Civil and Environmental Engineering (FCEE)",
       "institution": "Asian Institute of Technology (AIT)"
     },
-    "academicStatus": "MSc Candidate, Water Engineering and Management, Asian Institute of Technology (AIT), Thailand (2024–2026)",
+    "academicStatus": "MSc, Water Engineering and Management, Asian Institute of Technology (AIT), Thailand (2024–2026)",
     "email": "hlakhe123.hl@gmail.com",
     "links": {
       "linkedin": "https://www.linkedin.com/in/hanik-lakhe",
       "orcid": "https://orcid.org/0000-0001-7026-4245",
       "googleScholar": "https://scholar.google.com/citations?user=vAqIs78AAAAJ&hl=en",
-      "researchGate": "ADD_RESEARCHGATE",
+      "researchGate": "https://www.researchgate.net/profile/Hanik-Lakhe",
       "github": "https://github.com/Haniklakhe"
     }
   },
@@ -96,7 +96,7 @@
       "id": "s4w-citizen-science-hydromet-kathmandu",
       "title": "Citizen Science-based Hydro-meteorological Monitoring of the Kathmandu Valley",
       "type": "Research Project",
-      "period": "ADD_PERIOD",
+      "period": "2019-2024",
       "role": "Research Associate",
       "institution": "Smartphones For Water Nepal (S4W-Nepal)",
       "fundedBy": "SmartPhones4Water (S4W)",
@@ -168,7 +168,7 @@
       "location": "Remote",
       "tools": ["GIS", "Spatial Analysis"],
       "description": "Conducted a comprehensive climate risk assessment of road infrastructure across 10 provinces in Cambodia, supporting AIIB-funded climate resilience and infrastructure planning initiatives. Developed high-resolution multi-hazard risk maps for 38 priority road segments using advanced GIS and spatial analysis techniques. Assessed five major climate hazards — flood, drought, landslide, heatwave, and coastal flooding — to evaluate both current and future risk. Generated clear, decision-ready visualizations and maps to communicate complex climate risks to technical and non-technical stakeholders.",
-      "image": "/images/projects/aiib-cambodia-climate-risk.png"
+      "image": "/images/projects/aiib-cambodia-climate-risk.webp"
     },
     {
       "id": "swat-northern-thailand",
@@ -180,7 +180,7 @@
       "location": "Pathum Thani, Thailand",
       "tools": ["SWAT"],
       "description": "Developed hydrological models (SWAT) for effective use in Northern Thailand and conducted case studies on nature-based solutions (NBS), documenting best practices for urban water management. Organized project meetings and acted as a point of contact among research partners.",
-      "image": "/images/projects/swat-northern-thailand.png"
+      "image": "/images/projects/swat-northern-thailand.webp"
     }
   ],
 
@@ -192,7 +192,7 @@
       "title": "Suspended sediment dynamics in an urban, mountain catchment in Nepal.",
       "venue": "EGUsphere",
       "volumeInfo": "2026, 1–35",
-      "doi": "ADD_DOI",
+      "doi": "https://doi.org/10.5194/egusphere-2025-5026",
       "authorHighlight": "Lakhe, H."
     },
     {
@@ -202,7 +202,7 @@
       "title": "Leveraging a Citizen Science Approach for Rainfall Monitoring: Evaluating Performance and Reliability To Complement Standard Datasets.",
       "venue": "Earth Systems and Environment",
       "volumeInfo": "1–16",
-      "doi": "ADD_DOI",
+      "doi": "https://doi.org/10.1007/s41748-025-00920-8",
       "authorHighlight": "Lakhe, H."
     },
     {
@@ -212,7 +212,7 @@
       "title": "Assessing Groundwater Level and Water Quality in Bhaktapur Municipality: A Pre-Monsoon and Post-Monsoon Analysis.",
       "venue": "Khwopa Journal",
       "volumeInfo": "5(2), pp. 74–90",
-      "doi": "ADD_DOI",
+      "doi": "https://khwopajournals.com/index.php/kjour/article/view/110/102",
       "authorHighlight": "Lakhe, H."
     },
     {
@@ -246,7 +246,7 @@
       "title": "Linking satellite, sensor, and citizen science to understand sediment dynamics in Himalayan rivers.",
       "conference": "Water Science Conference (WaterSciCon24)",
       "reference": "No. 227, pp. 223–227",
-      "location": "ADD_LOCATION",
+      "location": "175 West Kellogg Boulevard, Saint Paul, Minnesota, USA",
       "role": "Co-Author"
     },
     {
@@ -257,7 +257,7 @@
       "title": "Evaluating Citizen Scientist's Performance on Water Resources Observation in the Kathmandu Valley.",
       "conference": "Water Science Conference (WaterSciCon24)",
       "reference": "No. 24, pp. 312–024",
-      "location": "ADD_LOCATION",
+      "location": "175 West Kellogg Boulevard, Saint Paul, Minnesota, USA",
       "role": "Co-Author"
     },
     {
@@ -267,7 +267,7 @@
       "authors": "Lakhe, H., Silwal, P., Chalise, A., Duwal, S., Shakya, S., Prajapati, R., Shakya, B. M.",
       "title": "Application of Water Quality Index for Groundwater Quality Assessment and its Perspective among the Urban Dwellers of the Kathmandu Valley, Nepal.",
       "conference": "AGU Fall Meeting 2022",
-      "location": "ADD_LOCATION",
+      "location": "Chicago, Illinois, USA",
       "role": "Lead Author"
     },
     {
@@ -277,7 +277,7 @@
       "authors": "Lakhe, H., Silwal, P., Duwal, S., Chalise, A., Shakya, S., Shakya, M.B.",
       "title": "Application of the Water Quality Index (WQI) for Irrigational Water Quality Assessment of the Hanumante River.",
       "conference": "KEC Conference 2022",
-      "location": "ADD_LOCATION",
+      "location": "Dhapakhel, Lalitpur",
       "role": "Lead Author"
     },
     {
@@ -287,7 +287,7 @@
       "authors": "Lakhe, H., Silwal, P., Duwal, S., Prajapati, R., Shakya, S., Davids, J.C.",
       "title": "Estimation of the Total Baseflow of the Kathmandu Valley Using Monthly Streamflow Measurements from a Sub-Sample of Headwater Catchments.",
       "conference": "AGU Fall Meeting 2021",
-      "location": "ADD_LOCATION",
+      "location": "New Orleans, Louisiana",
       "role": "Lead Author"
     }
   ],
@@ -599,10 +599,10 @@
     {
       "id": "award-mochwo",
       "name": "MoChWo Scholarship",
-      "issuer": "ADD_ISSUER",
-      "location": "ADD_LOCATION",
+      "issuer": "Kathmandu Institute of Applied Sciences (KIAS)",
+      "location": "Kathmandu, Nepal",
       "role": "Scholar",
-      "year": "ADD_DATE"
+      "year": "October 2019"
     },
     {
       "id": "award-mahatma-gandhi",

@@ -49,7 +49,7 @@ export function ExperienceLedger({
       <SectionTitle
         id="exp-title"
         as={headingAs}
-        note="Most recent first. The bar under each period shows where it falls between 2019 and today."
+        note="The bar under each experience shows where it falls between 2019 and present."
       >
         Experience
       </SectionTitle>
