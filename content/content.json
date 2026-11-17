@@ -186,6 +186,16 @@
 
   "publications": [
     {
+      "id": "pub-2026-bhotekoshi-trishuli-disaster",
+      "year": 2026,
+      "authors": "Khanal, P., Shrestha, P., Burlakoti, N., Lakhe, H., Neupane, S., & Shrestha, S.",
+      "title": "Beyond a Flash Flood: The Bhotekoshi–Trishuli Disaster in Nepal—Preliminary Insights, Lessons Learned and the Way Forward",
+      "venue": "Asian Institute of Technology (AIT)",
+      "volumeInfo": "Technical Report, 59 pp.",
+      "doi": "https://www.preventionweb.net/publication/documents-and-publications/beyond-flash-flood-bhotekoshi-trishuli-disaster-nepal",
+      "authorHighlight": "Lakhe, H."
+    },
+    {
       "id": "pub-2026-egusphere-suspended-sediment",
       "year": 2026,
       "authors": "Prajapati, R., Karki, S., Thapa, S., Lakhe, H., Bain, D., Gardner, J.",
