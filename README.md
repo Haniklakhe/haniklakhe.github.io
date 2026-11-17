@@ -2,7 +2,7 @@
 
 Personal academic portfolio of **Hanik Lakhe**, Research Associate in Water Engineering and Management at the Asian Institute of Technology (AIT), Thailand. It covers research in hydrological modelling, remote sensing and GIS, flood and climate risk, and citizen science.
 
-**Live site: [haniklakhe.github.io](https://haniklakhe.github.io)**
+**Live site: [haniklakhe.com.np](https://haniklakhe.com.np)**
 
 ## What's on the site
 
